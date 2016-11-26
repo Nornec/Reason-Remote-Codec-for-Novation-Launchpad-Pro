@@ -1,11 +1,6 @@
 --[[___________________________________________________________________________________________________
   || Novation Launchpad Pro -- Propellerhead "Remote" Codec                                          ||
   || Developed by -- James "Nornec" Ratliff                                                          ||
-  ||                                                                                                 ||
-  || File: nlpro.lua                                                                                 ||
-  || Desc:                                                                                           ||
-  || This file includes the main routines for running the codec.                                     ||
-  ||                                                                                                 ||
   |---------------------------------------------------------------------------------------------------|
   || A few notes before code:                                                                        ||
   || + The "print" function has been supplanted by "remote.trace(<string>)".                         ||
