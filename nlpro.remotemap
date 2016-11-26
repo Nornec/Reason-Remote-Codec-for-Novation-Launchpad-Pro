@@ -1,0 +1,63 @@
+Propellerhead Remote Mapping File
+File Format Version	1.0.0
+Control Surface Manufacturer	Novation
+Control Surface Model	Launchpad Pro
+Map Version	1.0.0
+
+Scope	Propellerheads	Master Keyboard
+
+Map	kboard		Keyboard
+
+
+Scope	Propellerheads	SubTractor Analog Synthesizer		
+
+Map	enc_pitch		Pitch Bend Range
+Map	enc_poly		Polyphony
+Map	enc_sub_wave_1		Osc1 Wave
+Map	enc_sub_oct_1		Osc1 Octave
+Map	enc_semi_1		Osc1 Semitone
+Map	enc_cent_1		Osc1 Fine Tune
+Map	enc_sub_wave_2		Osc2 Wave
+Map	enc_sub_oct_2		Osc2 Octave
+Map	enc_semi_2		Osc2 Semitone
+Map	enc_cent_2		Osc2 Fine Tune
+Map	p32		LFO1 Wave
+Map	p42		LFO1 Dest
+Map	p62		LFO2 Dest
+Map	p33		LFO Sync Enable
+Map	p63		Mod Env Dest
+Map	p14		Ext Mod Select
+Map	p24		Noise On/Off
+Map	p44		Osc1 Kbd Track
+Map	p54		Osc2 Kbd Track
+Map	p64		Mod Env Invert
+Map	p74		Filter Env Invert
+Map	p15		Osc2 Phase Mode
+Map	p65		Ring Mod
+Map	p16		Osc2 On/Off
+Map	p17		Osc1 Phase Mode
+Map	p77		Filter Type
+Map	p18		Key Mode
+Map	p78		Filter Link Freq On/Off
+Map	p88		Filter2 On/Off
+
+Map	fdr01		Amp Env Attack
+Map	fdr02		Amp Env Decay
+Map	fdr03		Amp Env Sustain
+Map	fdr04		Amp Env Release
+Map	fdr05		Filter Freq
+Map	fdr06		Filter Res
+Map	fdr07		Filter2 Freq
+Map	fdr08		Filter2 Res
+
+Map	fdr09		Filter Env Attack
+Map	fdr10		Filter Env Decay
+Map	fdr11		Filter Env Sustain
+Map	fdr12		Filter Env Release
+Map	fdr13		Filter Env Amount
+
+Map	fdr14		Mod Env Attack
+Map	fdr15		Mod Env Decay
+Map	fdr16		Mod Env Sustain
+Map	fdr17		Mod Env Release
+Map	fdr18		Mod Env Gain
