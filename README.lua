@@ -27,4 +27,12 @@
   ||   + Disable aftertouch control in Programmer mode                                               ||
   ||   + Disable internal (INT) pad lighting on all modes.                                           ||
   ||     (setting this option in one mode will affect all modes)                                     ||
+  |---------------------------------------------------------------------------------------------------|
+  || To Install                                                                                      ||
+  ||   Windows:                                                                                      ||
+  ||   Merge the "Codecs" and "Maps" folders with the ones located in:                               ||
+  ||   %appdata%\Roaming\Propellerhead Software\Remote\                                              ||
+  ||                                                                                                 ||
+  ||   Mac OS:                                                                                       ||
+  ||   You made it this far, I'm sure you'll figure it out.                                          ||
   ```````````````````````````````````````````````````````````````````````````````````````````````````]] 
