@@ -1,0 +1,23 @@
+version={0,0,1}
+
+function remote_supported_control_surfaces()
+
+	local surfaces =
+
+		{
+
+			{ manufacturer="Novation", model="Launchpad Pro",
+
+				source="nlpro.lua", picture="nlpro.png",
+				in_ports={ {description="i_port_01"} },
+				out_ports={{description="o_port_01"} },
+				has_keyboard=true
+
+			}
+
+		}
+
+	return surfaces
+
+end
+
