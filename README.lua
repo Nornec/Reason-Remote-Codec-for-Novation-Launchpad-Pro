@@ -32,7 +32,4 @@
   ||   Windows:                                                                                      ||
   ||   Merge the "Codecs" and "Maps" folders with the ones located in:                               ||
   ||   %appdata%\Roaming\Propellerhead Software\Remote\                                              ||
-  ||                                                                                                 ||
-  ||   Mac OS:                                                                                       ||
-  ||   You made it this far, I'm sure you'll figure it out.                                          ||
   ```````````````````````````````````````````````````````````````````````````````````````````````````]] 
