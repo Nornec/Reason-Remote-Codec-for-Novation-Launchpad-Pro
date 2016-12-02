@@ -938,13 +938,13 @@ function remote_init()
 	--[[108	
 	  ]]{name="enc_semi_1",        input="delta", output="value", min=0  , max=12},
 	    {name="enc_cent_1",        input="delta", output="value", min=-50, max=50},	    
-		{name="enc_semi_2",        input="delta", output="value", min=0  , max=12},
+	    {name="enc_semi_2",        input="delta", output="value", min=0  , max=12},
 	    {name="enc_cent_2",        input="delta", output="value", min=-50, max=50},
 		
 	--[[112
 	  ]]{name="enc_sub_wave_1",    input="delta", output="value", min=0  , max=31},
 	    {name="enc_sub_oct_1",     input="delta", output="value", min=0  , max=9 },	 
-		{name="enc_sub_wave_2",    input="delta", output="value", min=0  , max=31},
+	    {name="enc_sub_wave_2",    input="delta", output="value", min=0  , max=31},
 	    {name="enc_sub_oct_2",     input="delta", output="value", min=0  , max=9 },
 		
 	--[[116	
