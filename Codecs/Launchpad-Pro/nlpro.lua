@@ -1664,15 +1664,15 @@ end
 		
 	TODO:
 		
-		Fix the stuttering in fader mode when you switch modes
 		Add an else catch-all in remote_deliver_midi so that other buttons at least light up when pressed.
 			The issue with this right now lies with the group buttons. we don't want those turning off.
 		
 		Get group functionality working (according to group, use different input items)
 		
+		Use get_item_state to determine whether or not a certain device is selected, instead of the arrow keys.
+		
 		Consider adding a default layout that covers some of Reason's main controls.
-		Consider using the shift key to display a set of pickable devices, instead of 1 by 1 by way
-		of the left and right arrows.
+
 		Add more Devices.
 		
   ]]
