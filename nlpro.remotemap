@@ -1,0 +1,1768 @@
+Propellerhead Remote Mapping File
+File Format Version	1.0.0
+Control Surface Manufacturer	Novation
+Control Surface Model	Launchpad Pro
+Map Version	1.0.0
+
+Scope	Propellerheads	Master Keyboard
+Map	kboard		Keyboard
+
+
+Scope	Propellerheads	SubTractor Analog Synthesizer		
+Map	device_name		"subtractor"
+Map	sub_enc_pitch		Pitch Bend Range
+Map	sub_enc_poly		Polyphony
+Map	sub_enc_wave_1		Osc1 Wave
+Map	sub_enc_oct_1		Osc1 Octave
+Map	sub_enc_semi_1		Osc1 Semitone
+Map	sub_enc_cent_1		Osc1 Fine Tune
+Map	sub_enc_wave_2		Osc2 Wave
+Map	sub_enc_oct_2		Osc2 Octave
+Map	sub_enc_semi_2		Osc2 Semitone
+Map	sub_enc_cent_2		Osc2 Fine Tune
+Map	p32		LFO1 Wave
+Map	p42		LFO1 Dest
+Map	p62		LFO2 Dest
+Map	p33		LFO Sync Enable
+Map	p63		Mod Env Dest
+Map	p14		Ext Mod Select
+Map	p24		Noise On/Off
+Map	p44		Osc1 Kbd Track
+Map	p54		Osc2 Kbd Track
+Map	p64		Mod Env Invert
+Map	p74		Filter Env Invert
+Map	p15		Osc2 Phase Mode
+Map	p65		Ring Mod
+Map	p16		Osc2 On/Off
+Map	p17		Osc1 Phase Mode
+Map	p77		Filter Type
+Map	p18		Key Mode
+Map	p78		Filter Link Freq On/Off
+Map	p88		Filter2 On/Off
+
+Map	fdr01		Amp Env Attack
+Map	fdr02		Amp Env Decay
+Map	fdr03		Amp Env Sustain
+Map	fdr04		Amp Env Release
+Map	fdr05		Filter Freq
+Map	fdr06		Filter Res
+Map	fdr07		Filter2 Freq
+Map	fdr08		Filter2 Res
+
+Map	fdr09		Filter Env Attack
+Map	fdr10		Filter Env Decay
+Map	fdr11		Filter Env Sustain
+Map	fdr12		Filter Env Release
+Map	fdr13		Filter Env Amount
+
+Map	fdr17		Mod Env Attack
+Map	fdr18		Mod Env Decay
+Map	fdr19		Mod Env Sustain
+Map	fdr20		Mod Env Release
+Map	fdr21		Mod Env Gain
+
+Scope	Propellerheads	Reason Essentials Master Section
+Map	device_name		"essentials master section"
+
+
+Scope	Propellerheads	Reason Master Section
+Map	device_name		"reason master section"
+
+
+Scope	Propellerheads	Record Master Section
+Map	device_name		"record master section"
+
+
+Scope	Propellerheads	Reason Essentials Main Mixer Channel
+Map	device_name		"essentials main mixer channel"
+
+
+Scope	Propellerheads	Kong Drum Designer
+Map	device_name		"kong"
+
+
+Scope	Propellerheads	Redrum Drum Computer
+Map	device_name		"redrum"
+
+
+Scope	Propellerheads	Thor Polysonic Synthesizer
+Map	device_name		"thor"
+
+Scope	Propellerheads	Malstrom Graintable Synthesizer
+Map	device_name		"malstrom"
+
+
+Scope	Propellerheads	ID8 Instrument Device
+Map	device_name		"id8"
+
+
+Scope	Propellerheads	Dr.REX Loop Player
+Map	device_name		"dr.rex"
+
+
+Scope	Propellerheads	NN-XT Advanced Sampler
+Map	device_name		"nn-xt"
+
+
+Scope	Propellerheads	NN19 Digital Sampler
+Map	device_name		"nn19"
+
+
+Scope	Propellerheads	Scream 4 Distortion
+Map	device_name		"scream 4"
+
+
+Scope	Propellerheads	BV512 Digital Vocoder
+Map	device_name		"bv512"
+
+
+Scope	Propellerheads	RV7000 Advanced Reverb
+Map	device_name		"rv7000"
+
+
+Scope	Propellerheads	Neptune Pitch Adjuster
+Map	device_name		"neptune"
+
+
+Scope	Propellerheads	Line 6 Guitar Amp
+Map	device_name		"line 6 guitar"
+
+
+Scope	Propellerheads	Line 6 Bass Amp
+Map	device_name		"line 6 bass"
+
+
+Scope	Propellerheads	MClass Equalizer
+Map	device_name		"mclass equalizer"
+
+
+Scope	Propellerheads	MClass Compressor
+Map	device_name		"mclass compressor"
+
+
+Scope	Propellerheads	MClass Maximizer
+Map	device_name		"mclass maximizer"
+
+
+Scope	Propellerheads	MClass Stereo Imager
+Map	device_name		"mclass stereo imager"
+
+
+Scope	Propellerheads	RV-7 Digital Reverb
+Map	device_name		"rv-7"
+
+
+Scope	Propellerheads	DDL-1 Digital Delay Line
+Map	device_name		"ddl-1"
+
+
+Scope	Propellerheads	D-11 Foldback Distortion
+Map	device_name		"d-11"
+
+
+Scope	Propellerheads	ECF-42 Envelope Controlled Filter
+Map	device_name		"ecf-42"
+
+
+Scope	Propellerheads	CF-101 Chorus/Flanger
+Map	device_name		"cf-101"
+
+
+Scope	Propellerheads	PH-90 Phaser
+Map	device_name		"ph-90"
+
+
+Scope	Propellerheads	UN-16 Unison
+Map	device_name		"un-16"
+
+
+Scope	Propellerheads	COMP-01 Compressor/Limiter
+Map	device_name		"comp-01"
+
+
+Scope	Propellerheads	PEQ-2 Two Band Parametric EQ
+Map	device_name		"peq-2"
+
+
+Scope	Propellerheads	RPG-8 Monophonic Arpeggiator
+Map	device_name		"rpg-8"
+
+
+Scope	Propellerheads	Matrix Pattern Sequencer
+Map	device_name		"matrix"
+
+
+Scope	Propellerheads	Combinator
+Map	device_name		"combinator"
+
+
+Scope	Propellerheads	Spider Audio Merger & Splitter
+Map	device_name		"spider audio"
+
+
+Scope	Propellerheads	Spider CV Merger & Splitter
+Map	device_name		"spider cv"
+
+
+Scope	Propellerheads	Mixer 14:2
+Map	device_name		"mixer 14:2"
+
+
+Scope	Propellerheads	Line Mixer 6:2
+Map	device_name		"line mixer 6:2"
+
+
+Scope	Propellerheads	Reason Main Mixer Channel
+Map	device_name		"reason main mixer channel"
+
+
+Scope	Propellerheads	Record Main Mixer Channel
+Map	device_name		"record main mixer channel"
+
+
+Scope	Propellerheads	ReBirth Input Machine
+Map	device_name		"rebirth input machine"
+
+
+Scope	Propellerhead Software	se.propellerheads.externalmidiinstrument
+Map	device_name		"externalmidiinstrument"
+
+
+Scope	Propellerheads	Pulveriser
+Map	device_name		"pulveriser"
+
+
+Scope	Propellerheads	The Echo
+Map	device_name		"the echo"
+
+
+Scope	Propellerheads	Alligator
+Map	device_name		"alligator"
+
+
+Scope	Propellerhead Software	se.propellerheads.Arpeggio
+Map	device_name		"arpeggio"
+
+
+Scope	Propellerhead Software	se.propellerheads.Audiomatic
+Map	device_name		"audiomatic"
+
+
+Scope	Propellerhead Software	se.propellerheads.NoteEcho
+Map	device_name		"noteecho"
+
+
+Scope	Propellerhead Software	se.propellerheads.Pulsar
+Map	device_name		"pulsar"
+
+
+Scope	Propellerhead Software	se.propellerheads.ReasonAmp
+Map	device_name		"reasonamp"
+
+
+Scope	Propellerhead Software	se.propellerheads.ReasonBassAmp
+Map	device_name		"reasonbassamp"
+
+
+Scope	Propellerhead Software	se.propellerheads.ScalesAndChords
+Map	device_name		"scalesandchords"
+
+
+Scope	SoundMod	ca.soundmod.Tritone
+Map	device_name		"tritone"
+
+
+Scope	AirRaid Audio	ch.airraid.EChorus
+Map	device_name		"echorus"
+
+
+Scope	AirRaid Audio	ch.airraid.EDelay
+Map	device_name		"edelay"
+
+
+Scope	AirRaid Audio	ch.airraid.EDistort
+Map	device_name		"edistort"
+
+
+Scope	AirRaid Audio	ch.airraid.EFilter
+Map	device_name		"efilter"
+
+
+Scope	AirRaid Audio	ch.airraid.ELoFi
+Map	device_name		"elofi"
+
+
+Scope	AirRaid Audio	ch.airraid.ELoFi2
+Map	device_name		"elofi2"
+
+
+Scope	AirRaid Audio	ch.airraid.EPhaser
+Map	device_name		"ephaser"
+
+
+Scope	AirRaid Audio	ch.airraid.ESplitter
+Map	device_name		"esplitter"
+
+
+Scope	AirRaid Audio	ch.airraid.EStereoLFO
+Map	device_name		"estereolfo"
+
+
+Scope	AirRaid Audio	ch.airraid.Mutagen
+Map	device_name		"mutagen"
+
+
+Scope	AirRaid Audio	ch.airraid.Pandemic
+Map	device_name		"pandemic"
+
+
+Scope	AirRaid Audio	ch.airraid.Relapse
+Map	device_name		"relapse"
+
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.BattleAxe
+Map	device_name		"battleaxe"
+
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.BlackKnightEq
+Map	device_name		"blackknighteq"
+
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.Executioner
+Map	device_name		"executioner"
+
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.MaceProComp
+Map	device_name		"maceprocomp"
+
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.RedQueenEQ
+Map	device_name		"redqueeneq"
+
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.ReQ131
+Map	device_name		"req131"
+
+
+Scope	Aftermath Audio	com.aftermathaudio.CV8X4CVGenerator
+Map	device_name		"cv8x4cvgenerator"
+
+
+Scope	Alien Seed Tech	com.alienseed.PSDN_Envelope
+Map	device_name		"psdn_envelope"
+
+
+Scope	Amaloo Studio, LLC	com.amaloostudio.EXP1
+Map	device_name		"exp1"
+
+
+Scope	Audio Damage, Inc.	com.audiodamage.roughrider
+Map	device_name		"roughrider"
+
+
+Scope	Audio Poison	com.audiopoison.Strontium90
+Map	device_name		"strontium90"
+
+
+Scope	Bassment DSP	com.bassmentdsp.LotusCompressor
+Map	device_name		"lotuscompressor"
+
+
+Scope	Bassment DSP	com.bassmentdsp.NSPedalBoard
+Map	device_name		"nspedalboard"
+
+
+Scope	Bassment DSP	com.bassmentdsp.SA16Chorus
+Map	device_name		"sa16chorus"
+
+
+Scope	Black and Orange	com.blackandorange.AutoArp
+Map	device_name		"autoarp"
+
+
+Scope	Black and Orange	com.blackandorange.ReVolt
+Map	device_name		"revolt"
+
+
+Scope	Black and Orange	com.blackandorange.TrafficControl
+Map	device_name		"trafficcontrol"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Breakout
+Map	device_name		"breakout"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.CVMerger
+Map	device_name		"cvmerger"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.CVSplitter
+Map	device_name		"cvsplitter"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.DC1
+Map	device_name		"dc1"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.DC9
+Map	device_name		"dc9"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Distributor
+Map	device_name		"distributor"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.F16
+Map	device_name		"f16"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Mark_VIII
+Map	device_name		"mark_viii"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Merger
+Map	device_name		"merger"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Movement
+Map	device_name		"movement"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Resampler
+Map	device_name		"resampler"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Splitter
+Map	device_name		"splitter"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.t00b
+Map	device_name		"t00b"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Viking
+Map	device_name		"viking"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.VO1
+Map	device_name		"vo1"
+
+
+Scope	Blamsoft, Inc.	com.blamsoft.Zero
+Map	device_name		"zero"
+
+
+Scope	Cakewalk	com.cakewalk.RE2A
+Map	device_name		"re2a"
+
+
+Scope	Deadman Audio Devices	com.deadmanaudiodevices.getlayedsound
+Map	device_name		"getlayedsound"
+
+
+Scope	Deadman Audio Devices	com.deadmanaudiodevices.getlayedvoltage
+Map	device_name		"getlayedvoltage"
+
+
+Scope	Deadman Audio Devices	com.deadmanaudiodevices.MasterGater
+Map	device_name		"mastergater"
+
+
+Scope	Deadman Audio Devices	com.deadmanaudiodevices.onenotestand
+Map	device_name		"onenotestand"
+
+
+Scope	Devoloop	com.devoloop.Holedo
+Map	device_name		"holedo"
+
+
+Scope	Devoloop	com.devoloop.SitBull
+Map	device_name		"sitbull"
+
+
+Scope	DLD Technology	com.dldtechnology.as16
+Map	device_name		"as16"
+
+
+Scope	DLD Technology	com.dldtechnology.cvgateway
+Map	device_name		"cvgateway"
+
+
+Scope	DLD Technology	com.dldtechnology.cvmeter
+Map	device_name		"cvmeter"
+
+
+Scope	DLD Technology	com.dldtechnology.dr4
+Map	device_name		"dr4"
+
+
+Scope	DLD Technology	com.dldtechnology.headphonemonitor
+Map	device_name		"headphonemonitor"
+
+
+Scope	DLD Technology	com.dldtechnology.megasaur
+Map	device_name		"megasaur"
+
+
+Scope	DLD Technology	com.dldtechnology.respeech
+Map	device_name		"respeech"
+
+
+Scope	DLD Technology	com.dldtechnology.revolution
+Map	device_name		"revolution"
+
+
+Scope	DLD Technology	com.dldtechnology.snakebite
+Map	device_name		"snakebite"
+
+
+Scope	DNA Labs	com.dnalabs.Hydronexius
+Map	device_name		"hydronexius"
+
+
+Scope	Doodov Digital Design	com.doodov.SW4C
+Map	device_name		"sw4c"
+
+
+Scope	Expert Sleepers	com.expertsleepers.SWVoiceController
+Map	device_name		"swvoicecontroller"
+
+
+Scope	Fiedler Audio	com.fiedler_audio.AD480RE
+Map	device_name		"ad480re"
+
+
+Scope	Flower Audio	com.flowerau.4Dyne
+Map	device_name		"4dyne"
+
+
+Scope	Flower Audio	com.flowerau.LoudnessMeter
+Map	device_name		"loudnessmeter"
+
+
+Scope	The Musicology Group	com.flyinggreendoor.HaasMixer
+Map	device_name		"haasmixer"
+
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMBusComp
+Map	device_name		"dcambuscomp"
+
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMChanComp
+Map	device_name		"dcamchancomp"
+
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMEnvShaper
+Map	device_name		"dcamenvshaper"
+
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.EtchRack
+Map	device_name		"etchrack"
+
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.Tres
+Map	device_name		"tres"
+
+
+Scope	GForce Software	com.gforcesoftware.ReTron
+Map	device_name		"retron"
+
+
+Scope	Groovy Melon	com.groovymelon.MorfinXF
+Map	device_name		"morfinxf"
+
+
+Scope	Heavyocity	com.heavyocity.AeonOrganic
+Map	device_name		"aeonorganic"
+
+
+Scope	Heavyocity	com.heavyocity.AeonSynth
+Map	device_name		"aeonsynth"
+
+
+Scope	IOx Audioware	com.ioxaudioware.onyx
+Map	device_name		"onyx"
+
+
+Scope	IOx Audioware	com.ioxaudioware.titan
+Map	device_name		"titan"
+
+
+Scope	iZotope, Inc	com.izotope.ozonemaximizer
+Map	device_name		"ozonemaximizer"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Ammo100LA
+Map	device_name		"ammo100la"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Ammo1200BR
+Map	device_name		"ammo1200br"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Ammo400R
+Map	device_name		"ammo400r"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Anansi
+Map	device_name		"anansi"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Charlotte
+Map	device_name		"charlotte"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Chenille
+Map	device_name		"chenille"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Combo310U
+Map	device_name		"combo310u"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.ComboB3T
+Map	device_name		"combob3t"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.ComboCompact
+Map	device_name		"combocompact"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.ComboContinental
+Map	device_name		"combocontinental"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.ComboX705
+Map	device_name		"combox705"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Itsy
+Map	device_name		"itsy"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.JPSHarmonicSynth
+Map	device_name		"jpsharmonicsynth"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Lolth
+Map	device_name		"lolth"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Miranda
+Map	device_name		"miranda"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Mordred
+Map	device_name		"mordred"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Republik
+Map	device_name		"republik"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Shelob
+Map	device_name		"shelob"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Steerpike
+Map	device_name		"steerpike"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.Titus
+Map	device_name		"titus"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.TMA1
+Map	device_name		"tma1"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.TMA4
+Map	device_name		"tma4"
+
+
+Scope	Jiggery Pokery	com.jiggerypokery.TMA9
+Map	device_name		"tma9"
+
+
+Scope	Josh Levy	com.joshlevy.KitchenSync
+Map	device_name		"kitchensync"
+
+
+Scope	Josh Levy	com.joshlevy.Synth808
+Map	device_name		"synth808"
+
+
+Scope	Josh Levy	com.joshlevy.TickTick
+Map	device_name		"ticktick"
+
+
+Scope	J-Yul Sound	com.jyulsound.PiscesLimiter
+Map	device_name		"pisceslimiter"
+
+
+Scope	J-Yul Sound	com.jyulsound.PiscesLimiterFree
+Map	device_name		"pisceslimiterfree"
+
+
+Scope	kiloHearts	com.kilohearts.Disperser
+Map	device_name		"disperser"
+
+
+Scope	kiloHearts	com.kilohearts.Faturator
+Map	device_name		"faturator"
+
+
+Scope	kiloHearts	com.kilohearts.khsONE
+Map	device_name		"khsone"
+
+
+Scope	Kuassa	com.kuassa.AmplifikationCreme
+Map	device_name		"amplifikationcreme"
+
+
+Scope	Kuassa	com.kuassa.AmplifikationVermilion
+Map	device_name		"amplifikationvermilion"
+
+
+Scope	Kuassa	com.kuassa.CerberusBassAmp
+Map	device_name		"cerberusbassamp"
+
+
+Scope	Kuassa	com.kuassa.EVEAT1
+Map	device_name		"eveat1"
+
+
+Scope	Kuassa	com.kuassa.EVEAT4
+Map	device_name		"eveat4"
+
+
+Scope	Kuassa	com.kuassa.EVEMP5
+Map	device_name		"evemp5"
+
+
+Scope	Kuassa	com.kuassa.Kratos2Maximizer
+Map	device_name		"kratos2maximizer"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.Janitor
+Map	device_name		"janitor"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.Korde
+Map	device_name		"korde"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.MoPol
+Map	device_name		"mopol"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.Propulsion
+Map	device_name		"propulsion"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.PSQ1684
+Map	device_name		"psq1684"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.Shape
+Map	device_name		"shape"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.Skope
+Map	device_name		"skope"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.SkopeM4
+Map	device_name		"skopem4"
+
+
+Scope	Lectric Panda LLC	com.lectricpanda.Spektrum
+Map	device_name		"spektrum"
+
+
+Scope	McDSP	com.mcdsp.C670
+Map	device_name		"c670"
+
+
+Scope	McDSP	com.mcdsp.E670
+Map	device_name		"e670"
+
+
+Scope	McDSP	com.mcdsp.FRG4RE
+Map	device_name		"frg4re"
+
+
+Scope	McDSP	com.mcdsp.FRGEEE
+Map	device_name		"frgeee"
+
+
+Scope	McDSP	com.mcdsp.FutzBox
+Map	device_name		"futzbox"
+
+
+Scope	McDSP	com.mcdsp.MooQ
+Map	device_name		"mooq"
+
+
+Scope	McDSP	com.mcdsp.MooTube
+Map	device_name		"mootube"
+
+
+Scope	Devoloop	com.mikegazzaruso.DYNARAGE
+Map	device_name		"dynarage"
+
+
+Scope	MGSoft Audio Software	com.mikegazzaruso.Threeloo
+Map	device_name		"threeloo"
+
+
+Scope	MGSoft Audio Software	com.mikegazzaruso.Unifylter
+Map	device_name		"unifylter"
+
+
+Scope	Nucleus SoundLab	com.nucleussoundlab.Beat_Crush
+Map	device_name		"beat_crush"
+
+
+Scope	Numerical Sound	com.numericalSound.BassTiltFilters
+Map	device_name		"basstiltfilters"
+
+
+Scope	Numerical Sound	com.numericalSound.MidrangeTiltFilters
+Map	device_name		"midrangetiltfilters"
+
+
+Scope	Numerical Sound	com.numericalSound.ReBassNarrow
+Map	device_name		"rebassnarrow"
+
+
+Scope	Numerical Sound	com.numericalSound.ReBassWide
+Map	device_name		"rebasswide"
+
+
+Scope	Numerical Sound	com.numericalSound.ReStereo
+Map	device_name		"restereo"
+
+
+Scope	Numerical Sound	com.numericalSound.RiVerbHalls
+Map	device_name		"riverbhalls"
+
+
+Scope	Numerical Sound	com.numericalSound.RiVerbUpFrontSpaces
+Map	device_name		"riverbupfrontspaces"
+
+
+Scope	Numerical Sound	com.numericalSound.ToneMutations
+Map	device_name		"tonemutations"
+
+
+Scope	Numerical Sound	com.numericalSound.ToneMutationsVocals
+Map	device_name		"tonemutationsvocals"
+
+
+Scope	Numerical Sound	com.numericalSound.TrebleTiltFilters
+Map	device_name		"trebletiltfilters"
+
+
+Scope	Ochen K.	com.ochenk.4MER
+Map	device_name		"4mer"
+
+
+Scope	Ochen K.	com.ochenk.ASeriesModularSynth1
+Map	device_name		"aseriesmodularsynth1"
+
+
+Scope	Ochen K.	com.ochenk.ASeriesModularSynth2
+Map	device_name		"aseriesmodularsynth2"
+
+
+Scope	Ochen K.	com.ochenk.CarveEQ
+Map	device_name		"carveeq"
+
+
+Scope	Ochen K.	com.ochenk.Chip64
+Map	device_name		"chip64"
+
+
+Scope	Ochen K.	com.ochenk.CVTuner
+Map	device_name		"cvtuner"
+
+
+Scope	Ochen K.	com.ochenk.Driver
+Map	device_name		"driver"
+
+
+Scope	Ochen K.	com.ochenk.EDS06sDrumSynth
+Map	device_name		"eds06sdrumsynth"
+
+
+Scope	Ochen K.	com.ochenk.GlitchEffect
+Map	device_name		"glitcheffect"
+
+
+Scope	Ochen K.	com.ochenk.MicroTune
+Map	device_name		"microtune"
+
+
+Scope	Ochen K.	com.ochenk.PCV
+Map	device_name		"pcv"
+
+
+Scope	Ochen K.	com.ochenk.PDT
+Map	device_name		"pdt"
+
+
+Scope	Ochen K.	com.ochenk.Repeat
+Map	device_name		"repeat"
+
+
+Scope	omino	com.omino.wbl3001
+Map	device_name		"wbl3001"
+
+
+Scope	omino	com.omino.wbl5515
+Map	device_name		"wbl5515"
+
+
+Scope	Peff	com.peff.Alias8cv
+Map	device_name		"alias8cv"
+
+
+Scope	Peff	com.peff.Buffre
+Map	device_name		"buffre"
+
+
+Scope	Peff	com.peff.crapre
+Map	device_name		"crapre"
+
+
+Scope	Peff	com.peff.crapre2
+Map	device_name		"crapre2"
+
+
+Scope	Peff	com.peff.CRAPREnumber2
+Map	device_name		"craprenumber2"
+
+
+Scope	Peff	com.peff.Directre
+Map	device_name		"directre"
+
+
+Scope	Peff	com.peff.Spacre
+Map	device_name		"spacre"
+
+
+Scope	Pepin Hazan	com.pepinhazan.FRONT8
+Map	device_name		"front8"
+
+
+Scope	Pepin Hazan	com.pepinhazan.RVL1Display
+Map	device_name		"rvl1display"
+
+
+Scope	pongasoft	com.pongasoft.AB12AudioSwitch
+Map	device_name		"ab12audioswitch"
+
+
+Scope	pongasoft	com.pongasoft.ABSwitch
+Map	device_name		"abswitch"
+
+
+Scope	pongasoft	com.pongasoft.VAC6
+Map	device_name		"vac6"
+
+
+Scope	Primal Audio	com.primalaudio.Acid
+Map	device_name		"acid"
+
+
+Scope	Primal Audio	com.primalaudio.FM4
+Map	device_name		"fm4"
+
+
+Scope	Primal Audio	com.primalaudio.Ladder
+Map	device_name		"ladder"
+
+
+Scope	Primal Audio	com.primalaudio.PMS20
+Map	device_name		"pms20"
+
+
+Scope	ProjectSAM	com.projectsam.Sampler
+Map	device_name		"sampler"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.BeatChopRTS
+Map	device_name		"beatchoprts"
+
+
+Scope	Quadelectra (Quadelectra Audioworx)	com.quadelectra.CVSuiteLineMixer
+Map	device_name		"cvsuitelinemixer"
+
+
+Scope	Quadelectra (Quadelectra Audioworx)	com.quadelectra.CVSuiteLineProcessor
+Map	device_name		"cvsuitelineprocessor"
+
+
+Scope	Quadelectra (Quadelectra Audioworx)	com.quadelectra.CVSuiteParametrix
+Map	device_name		"cvsuiteparametrix"
+
+
+Scope	Quadelectra (Quadelectra Audioworx)	com.quadelectra.CVSuiteSignalRepeater
+Map	device_name		"cvsuitesignalrepeater"
+
+
+Scope	Quadelectra (Quadelectra Audioworx)	com.quadelectra.CVSuiteVectorizer
+Map	device_name		"cvsuitevectorizer"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.JackBox707
+Map	device_name		"jackbox707"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.JackBox727
+Map	device_name		"jackbox727"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.JackBox808
+Map	device_name		"jackbox808"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.Jackbox909
+Map	device_name		"jackbox909"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.JackBoxL1M
+Map	device_name		"jackboxl1m"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.JackBoxRZi
+Map	device_name		"jackboxrzi"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.Mercury
+Map	device_name		"mercury"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.StereoSplitter
+Map	device_name		"stereosplitter"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.System9
+Map	device_name		"system9"
+
+
+Scope	Quadelectra Audioworx	com.quadelectra.ThreePlex
+Map	device_name		"threeplex"
+
+
+Scope	Retouch Control	com.retouchcontrol.ChordSet
+Map	device_name		"chordset"
+
+
+Scope	Retouch Control	com.retouchcontrol.JammeR
+Map	device_name		"jammer"
+
+
+Scope	Retouch Control	com.retouchcontrol.Slider
+Map	device_name		"slider"
+
+
+Scope	Retouch Control	com.retouchcontrol.XY8
+Map	device_name		"xy8"
+
+
+Scope	Robotic Bean	com.roboticbean.AcoustiClap
+Map	device_name		"acousticlap"
+
+
+Scope	Robotic Bean	com.roboticbean.CowBell
+Map	device_name		"cowbell"
+
+
+Scope	Robotic Bean	com.roboticbean.ElectroClap
+Map	device_name		"electroclap"
+
+
+Scope	Robotic Bean	com.roboticbean.Euclid
+Map	device_name		"euclid"
+
+
+Scope	Robotic Bean	com.roboticbean.Select
+Map	device_name		"select"
+
+
+Scope	Robotic Bean	com.roboticbean.Step
+Map	device_name		"step"
+
+
+Scope	Rob Papen	com.robpapen.PredatorRE
+Map	device_name		"predatorre"
+
+
+Scope	Rob Papen	com.robpapen.PunchBDRE
+Map	device_name		"punchbdre"
+
+
+Scope	Rob Papen	com.robpapen.Quad
+Map	device_name		"quad"
+
+
+Scope	Rob Papen	com.robpapen.RGRE
+Map	device_name		"rgre"
+
+
+Scope	Rob Papen	com.robpapen.RPDistort
+Map	device_name		"rpdistort"
+
+
+Scope	Rob Papen	com.robpapen.RPVerb
+Map	device_name		"rpverb"
+
+
+Scope	Rob Papen	com.robpapen.SubBoomBassRE
+Map	device_name		"subboombassre"
+
+
+Scope	Rob Papen	com.robpapen.Vecto
+Map	device_name		"vecto"
+
+
+Scope	ScuzzyEye	com.scuzzyeye.MS34
+Map	device_name		"ms34"
+
+
+Scope	ScuzzyEye	com.scuzzyeye.SU27
+Map	device_name		"su27"
+
+
+Scope	Selig Audio, LLC	com.seligaudio.ReMark
+Map	device_name		"remark"
+
+
+Scope	Selig Audio	com.seligaudio.SeligDeEsser
+Map	device_name		"seligdeesser"
+
+
+Scope	Selig Audio	com.seligaudio.SeligGain
+Map	device_name		"seliggain"
+
+
+Scope	Selig Audio	com.seligaudio.TheCurve
+Map	device_name		"thecurve"
+
+
+Scope	Softube	com.softube.re.ARange
+Map	device_name		"arange"
+
+
+Scope	Softube	com.softube.re.Dynamite
+Map	device_name		"dynamite"
+
+
+Scope	Softube	com.softube.re.FETCompressor
+Map	device_name		"fetcompressor"
+
+
+Scope	Softube	com.softube.re.SaturationKnob
+Map	device_name		"saturationknob"
+
+
+Scope	Softube	com.softube.re.SpringReverb
+Map	device_name		"springreverb"
+
+
+Scope	Softube	com.softube.re.TSAR1
+Map	device_name		"tsar1"
+
+
+Scope	Softube	com.softube.re.TSAR1R
+Map	device_name		"tsar1r"
+
+
+Scope	Softube	com.softube.re.TubeDelay
+Map	device_name		"tubedelay"
+
+
+Scope	Softube	com.softube.re.TubeTechCC
+Map	device_name		"tubetechcc"
+
+
+Scope	Sonic Charge	com.soniccharge.Bitspeek
+Map	device_name		"bitspeek"
+
+
+Scope	Sonic Charge	com.soniccharge.Echobode
+Map	device_name		"echobode"
+
+
+Scope	SonicWorkflow	com.sonicworkflow.ReLabeler
+Map	device_name		"relabeler"
+
+
+Scope	Sononics	com.sononics.GSX
+Map	device_name		"gsx"
+
+
+Scope	Sononics	com.sononics.Revival
+Map	device_name		"revival"
+
+
+Scope	Soundiron LLC	com.soundiron.EmotionalPiano
+Map	device_name		"emotionalpiano"
+
+
+Scope	Spectral Scan Software	com.spectralscan.4PhaseLFO
+Map	device_name		"4phaselfo"
+
+
+Scope	Sugar Bytes	com.sugarbytes.FilterPattern
+Map	device_name		"filterpattern"
+
+
+Scope	Sugar Bytes	com.sugarbytes.PitchDelay
+Map	device_name		"pitchdelay"
+
+
+Scope	Sugar Bytes	com.sugarbytes.SliceArranger
+Map	device_name		"slicearranger"
+
+
+Scope	Sugar Bytes	com.sugarbytes.Spectralizer
+Map	device_name		"spectralizer"
+
+
+Scope	Sugar Bytes	com.sugarbytes.Vinylizer
+Map	device_name		"vinylizer"
+
+
+Scope	Sugar Bytes	com.sugarbytes.Vocodizer
+Map	device_name		"vocodizer"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.Antidote
+Map	device_name		"antidote"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.FatSpace
+Map	device_name		"fatspace"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseChorus
+Map	device_name		"synapsechorus"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseFilter
+Map	device_name		"synapsefilter"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseGQ7
+Map	device_name		"synapsegq7"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseNinety
+Map	device_name		"synapseninety"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapsePhaser
+Map	device_name		"synapsephaser"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseReverb1
+Map	device_name		"synapsereverb1"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseRingMod
+Map	device_name		"synapseringmod"
+
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseVintEQ
+Map	device_name		"synapsevinteq"
+
+
+Scope	ThatMusicCompany	com.thatmusiccompany.DistortChain
+Map	device_name		"distortchain"
+
+
+Scope	ThatMusicCompany	com.thatmusiccompany.MrOverDrive
+Map	device_name		"mroverdrive"
+
+
+Scope	ThatMusicCompany	com.thatmusiccompany.T2Phaser
+Map	device_name		"t2phaser"
+
+
+Scope	The Chronologists	com.thechronologists.Constants
+Map	device_name		"constants"
+
+
+Scope	The Chronologists	com.thechronologists.Divisor
+Map	device_name		"divisor"
+
+
+Scope	The Chronologists	com.thechronologists.Equation
+Map	device_name		"equation"
+
+
+Scope	The Chronologists	com.thechronologists.EquationJr
+Map	device_name		"equationjr"
+
+
+Scope	The Chronologists	com.thechronologists.Later
+Map	device_name		"later"
+
+
+Scope	The Chronologists	com.thechronologists.Now
+Map	device_name		"now"
+
+
+Scope	The Chronologists	com.thechronologists.Randrome
+Map	device_name		"randrome"
+
+
+Scope	The Chronologists	com.thechronologists.RandromeJr
+Map	device_name		"randromejr"
+
+
+Scope	The Chronologists	com.thechronologists.Scope
+Map	device_name		"scope"
+
+
+Scope	The Chronologists	com.thechronologists.ScopeJr
+Map	device_name		"scopejr"
+
+
+Scope	The Chronologists	com.thechronologists.Truth
+Map	device_name		"truth"
+
+
+Scope	Time Extend Audio Limited	com.timeextendaudio.MilkShake
+Map	device_name		"milkshake"
+
+
+Scope	u-he	com.uheplugins.Runciter
+Map	device_name		"runciter"
+
+
+Scope	u-he	com.uheplugins.UhbikA
+Map	device_name		"uhbika"
+
+
+Scope	u-he	com.uheplugins.UhbikD
+Map	device_name		"uhbikd"
+
+
+Scope	u-he	com.uheplugins.UhbikF
+Map	device_name		"uhbikf"
+
+
+Scope	u-he	com.uheplugins.UhbikG
+Map	device_name		"uhbikg"
+
+
+Scope	u-he	com.uheplugins.UhbikP
+Map	device_name		"uhbikp"
+
+
+Scope	u-he	com.uheplugins.UhbikQ
+Map	device_name		"uhbikq"
+
+
+Scope	u-he	com.uheplugins.UhbikS
+Map	device_name		"uhbiks"
+
+
+Scope	u-he	com.uheplugins.UhbikT
+Map	device_name		"uhbikt"
+
+
+Scope	Unfiltered Audio	com.unfilteredaudio.G8Gate
+Map	device_name		"g8gate"
+
+
+Scope	Unfiltered Audio	com.unfilteredaudio.Renoun
+Map	device_name		"renoun"
+
+
+Scope	Unfiltered Audio	com.unfilteredaudio.Yoko
+Map	device_name		"yoko"
+
+
+Scope	Vibe Plant	com.vibeplant.DragonGate
+Map	device_name		"dragongate"
+
+
+Scope	Vibe Plant	com.vibeplant.Relight
+Map	device_name		"relight"
+
+
+Scope	ZakunaProd	com.zakunaprod.Lithium
+Map	device_name		"lithium"
+
+
+Scope	Normen Hansen	de.normenhansen.vmg01
+Map	device_name		"vmg01"
+
+
+Scope	Zvork	fr.zvork.LeSpace
+Map	device_name		"lespace"
+
+
+Scope	Zvork	fr.zvork.Noxious
+Map	device_name		"noxious"
+
+
+Scope	Zvork	fr.zvork.Oberton
+Map	device_name		"oberton"
+
+
+Scope	Zvork	fr.zvork.VoltCB1
+Map	device_name		"voltcb1"
+
+
+Scope	Zvork	fr.zvork.VoltSH1
+Map	device_name		"voltsh1"
+
+
+Scope	Zvork	fr.zvork.VoltSL1
+Map	device_name		"voltsl1"
+
+
+Scope	KORG	jp.co.korg.MonoPoly
+Map	device_name		"monopoly"
+
+
+Scope	KORG	jp.co.korg.Polysix
+Map	device_name		"polysix"
+
+
+Scope	Multi-D	nl.multid.CVMutant
+Map	device_name		"cvmutant"
+
+
+Scope	Studio Corbach	nl.studiocorbach.MixfoodAmbiNature
+Map	device_name		"mixfoodambinature"
+
+
+Scope	Studio Corbach	nl.studiocorbach.MixfoodOrange
+Map	device_name		"mixfoodorange"
+
+
+Scope	Studio Corbach	nl.studiocorbach.MixfoodUnisonXs
+Map	device_name		"mixfoodunisonxs"
+
+
+Scope	WiZAudio	nl.wizaudio.PlayGate
+Map	device_name		"playgate"
+
+
+Scope	WiZAudio	nl.wzwart.AdditiveOscillator
+Map	device_name		"additiveoscillator"
+
+
+Scope	WiZAudio	nl.wzwart.TableOscillator
+Map	device_name		"tableoscillator"
+
+
+Scope	Pitchblende	nz.co.pitchblende.AutoTheory
+Map	device_name		"autotheory"
+
+
+Scope	DlogB	org.dlogb.SplitterEffect
+Map	device_name		"splittereffect"
+
+
+Scope	Little IO	org.tytel.littlelfo
+Map	device_name		"littlelfo"
+
+
+Scope	D16 Group Audio Software	pl.d16.Decimort2
+Map	device_name		"decimort2"
+
+
+Scope	D16 Group Audio Software	pl.d16.Devastor2
+Map	device_name		"devastor2"
+
+
+Scope	LaboratoriaIT.RU, LLC	ru.laboratoriait.AudioToCV
+Map	device_name		"audiotocv"
+
+
+Scope	CodeDiggers	ru.laboratoriait.DQ
+Map	device_name		"dq"
+
+
+Scope	LaboratoriaIT.RU, LLC	ru.laboratoriait.Filter
+Map	device_name		"filter"
+
+
+Scope	Ravenherz	ru.ravenherz.DigitalVoltageComparator
+Map	device_name		"digitalvoltagecomparator"
+
+
+Scope	Red Rock Sound	ru.redrocksound.C1A
+Map	device_name		"c1a"
+
+
+Scope	Red Rock Sound	ru.redrocksound.C1L1
+Map	device_name		"c1l1"
+
+
+Scope	Red Rock Sound	ru.redrocksound.C1S
+Map	device_name		"c1s"
+
+
+Scope	Red Rock Sound	ru.redrocksound.Ivoks
+Map	device_name		"ivoks"
+
+
+Scope	Red Rock Sound	ru.redrocksound.MBC
+Map	device_name		"mbc"
+
+
+Scope	Red Rock Sound	ru.redrocksound.Measure
+Map	device_name		"measure"
+
+
+Scope	Red Rock Sound	ru.redrocksound.PPM
+Map	device_name		"ppm"
+
+
+Scope	Red Rock Sound	ru.redrocksound.RE128
+Map	device_name		"re128"
+
+
+Scope	Red Rock Sound	ru.redrocksound.RE180
+Map	device_name		"re180"
+
+
+Scope	Red Rock Sound	ru.redrocksound.RE181
+Map	device_name		"re181"
+
+
+Scope	Red Rock Sound	ru.redrocksound.RE200
+Map	device_name		"re200"
+
+
+Scope	Red Rock Sound	ru.redrocksound.RE202
+Map	device_name		"re202"
+
+
+Scope	Red Rock Sound	ru.redrocksound.RE302
+Map	device_name		"re302"
+
+
+Scope	Red Rock Sound	ru.redrocksound.RE60
+Map	device_name		"re60"
+
+
+Scope	Red Rock Sound	ru.redrocksound.Red
+Map	device_name		"red"
+
+
+Scope	Red Rock Sound	ru.redrocksound.Reverb
+Map	device_name		"reverb"
+
+
+Scope	Red Rock Sound	ru.redrocksound.VU
+Map	device_name		"vu"
+
+
+Scope	Sputnik Audio	ru.sputnikaudio.SP1_Plate
+Map	device_name		"sp1_plate"
+
+
+Scope	Sputnik Audio	ru.sputnikaudio.SP2_Sib
+Map	device_name		"sp2_sib"
+
+
+Scope	Turn2on Software	ru.turn2on.Blackpole
+Map	device_name		"blackpole"
+
+
+Scope	Turn2on Software	ru.turn2on.Meteora
+Map	device_name		"meteora"
+
+
+Scope	Turn2on Software	ru.turn2on.Metro
+Map	device_name		"metro"
+
+
+Scope	AudioRealism	se.audiorealism.abl3
+Map	device_name		"abl3"
+
+
+Scope	AudioRealism	se.audiorealism.Dominator
+Map	device_name		"dominator"
+
+
+Scope	AudioRealism	se.audiorealism.reabl2
+Map	device_name		"reabl2"
+
+
+Scope	HaMu	se.hamu.MatchMaker
+Map	device_name		"matchmaker"
+
+
+Scope	HaMu	se.hamu.Mesher4B
+Map	device_name		"mesher4b"
+
+
+Scope	HaMu	se.hamu.Mesher4K
+Map	device_name		"mesher4k"
+
+
+Scope	HaMu	se.hamu.Mesher8B
+Map	device_name		"mesher8b"
+
+
+Scope	HaMu	se.hamu.Mesher8K
+Map	device_name		"mesher8k"
+
+
+Scope	HaMu	se.hamu.MidiTapper
+Map	device_name		"miditapper"
+
+
+Scope	HaMu	se.hamu.Mingler
+Map	device_name		"mingler"
+
+
+Scope	HaMu	se.hamu.ModPanel12
+Map	device_name		"modpanel12"
+
+
+Scope	HaMu	se.hamu.ModPanel16
+Map	device_name		"modpanel16"
+
+
+Scope	HaMu	se.hamu.ModPanel8
+Map	device_name		"modpanel8"
+
+
+Scope	HaMu	se.hamu.ModSelsor
+Map	device_name		"modselsor"
+
+
+Scope	HaMu	se.hamu.ModSlewer
+Map	device_name		"modslewer"
+
+
+Scope	HaMu	se.hamu.ModStepper
+Map	device_name		"modstepper"
+
+
+Scope	HaMu	se.hamu.ModSweeper
+Map	device_name		"modsweeper"
+
+
+Scope	HaMu	se.hamu.MxSplirger
+Map	device_name		"mxsplirger"
+
+
+Scope	HaMu	se.hamu.Newtrol_12
+Map	device_name		"newtrol_12"
+
+
+Scope	HaMu	se.hamu.Newtrol_16
+Map	device_name		"newtrol_16"
+
+
+Scope	HaMu	se.hamu.Newtrol_8
+Map	device_name		"newtrol_8"
+
+
+Scope	LoveOne	se.loveone.Bakelite
+Map	device_name		"bakelite"
+
+
+Scope	LoveOne	se.loveone.BZR1
+Map	device_name		"bzr1"
+
+
+Scope	LoveOne	se.loveone.Neutron
+Map	device_name		"neutron"
+
+
+Scope	Propellerhead Software	se.propellerheads.AcousticGuitarist
+Map	device_name		"acousticguitarist"
+
+
+Scope	Propellerhead Software	se.propellerheads.AListDrummer
+Map	device_name		"alistdrummer"
+
+
+Scope	Propellerhead Software	se.propellerheads.ElectricGuitaristPC
+Map	device_name		"electricguitaristpc"
+
+
+Scope	Propellerhead Software	se.propellerheads.ElectricGuitaristPopC
+Map	device_name		"electricguitaristpopc"
+
+
+Scope	Propellerhead Software	se.propellerheads.Parsec
+Map	device_name		"parsec"
+
+
+Scope	Propellerhead Software	se.propellerheads.Polar
+Map	device_name		"polar"
+
+
+Scope	Propellerhead Software	se.propellerheads.PX7
+Map	device_name		"px7"
+
+
+Scope	Propellerhead Software	se.propellerheads.RadicalKeys
+Map	device_name		"radicalkeys"
+
+
+Scope	Propellerhead Software	se.propellerheads.radicalpiano
+Map	device_name		"radicalpiano"
+
+
+Scope	Propellerhead Software	se.propellerheads.Rotor
+Map	device_name		"rotor"
+
+
+Scope	Propellerhead Software	se.propellerheads.Synchronous
+Map	device_name		"synchronous"
+
+
+Scope	Skrock Music	se.skrockmusic.Aurora
+Map	device_name		"aurora"
+
+
+Scope	Skrock Music	se.skrockmusic.Iridium
+Map	device_name		"iridium"
+
+
+Scope	Skrock Music	se.skrockmusic.Nautilus
+Map	device_name		"nautilus"
+
+
+Scope	Skrock Music	se.skrockmusic.Orbis
+Map	device_name		"orbis"
+
+
+Scope	Skrock Music	se.skrockmusic.Solaris
+Map	device_name		"solaris"
+
+
+Scope	The Musicology Group	the.musicologygroup.DigitalFilter
+Map	device_name		"digitalfilter"
+
+
+Scope	GVXT	uk.co.gvxt.GClip
+Map	device_name		"gclip"
+
+
+Scope	Propellerheads	ReGroove Mixer
+Map	device_name		"regroove mixer"
+
+
+Scope	Propellerheads	Reason Document
+Map	device_name		"reason document"
+
+
+Scope	Propellerheads	Record Document
+Map	device_name		"record document"
