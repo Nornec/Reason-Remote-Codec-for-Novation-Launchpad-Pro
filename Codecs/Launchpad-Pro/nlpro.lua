@@ -59,6 +59,7 @@ local prev_state_midi = {}
 local count = 0        --[[ Used in error checking                                              ]] 
 local errors = {}      --[[ Used in error checking                                              ]]
 local event = {}       --[[ Defined before RPM to be used to define encoder controls on the fly ]]
+local lastval = 0
 
 local  btn = 
 {
@@ -212,40 +213,40 @@ local devc_actions =
 		--[[These number assignments correspond to the pad table, not the device table.]]
 		
 		--[[ Pitch range select ]]
-		[09]={item = 131, value = -1, time_stamp = event.time_stamp},
-		[17]={item = 131,  value = 1, time_stamp = event.time_stamp},
+		[09]={item = 131, value = -1, time_stamp},
+		[17]={item = 131,  value = 1, time_stamp},
 		
 		--[[ Poly select ]]
-		[10]={item = 132, value = -1, time_stamp = event.time_stamp},
-		[18]={item = 132,  value = 1, time_stamp = event.time_stamp},
+		[10]={item = 132, value = -1, time_stamp},
+		[18]={item = 132,  value = 1, time_stamp},
 		
 		--[[ Osc 1 Functions ]]
 		--[[ Osc 1 Wave ]]
-		[50]={item = 133, value = -1, time_stamp = event.time_stamp},	
-		[58]={item = 133,  value = 1, time_stamp = event.time_stamp},
+		[50]={item = 133, value = -1, time_stamp},	
+		[58]={item = 133,  value = 1, time_stamp},
 		--[[ Osc 1 Octave ]]
-		[51]={item = 134, value = -1, time_stamp = event.time_stamp},
-		[59]={item = 134,  value = 1, time_stamp = event.time_stamp},
+		[51]={item = 134, value = -1, time_stamp},
+		[59]={item = 134,  value = 1, time_stamp},
 		--[[ Osc 1 Semitone ]]
-		[52]={item = 135, value = -1, time_stamp = event.time_stamp},
-		[60]={item = 135,  value = 1, time_stamp = event.time_stamp},
+		[52]={item = 135, value = -1, time_stamp},
+		[60]={item = 135,  value = 1, time_stamp},
 		--[[ Osc 1 Fine Tune ]]
-		[53]={item = 136, value = -1, time_stamp = event.time_stamp},
-		[61]={item = 136,  value = 1, time_stamp = event.time_stamp},
+		[53]={item = 136, value = -1, time_stamp},
+		[61]={item = 136,  value = 1, time_stamp},
 			
 		--[[ Osc 2 Functions ]]
 		--[[ Osc 2 Wave ]]
-		[34]={item = 137, value = -1, time_stamp = event.time_stamp},
-		[42]={item = 137,  value = 1, time_stamp = event.time_stamp},
+		[34]={item = 137, value = -1, time_stamp},
+		[42]={item = 137,  value = 1, time_stamp},
 		--[[ Osc 2 Octave ]]
-		[35]={item = 138, value = -1, time_stamp = event.time_stamp},
-		[43]={item = 138,  value = 1, time_stamp = event.time_stamp},
+		[35]={item = 138, value = -1, time_stamp},
+		[43]={item = 138,  value = 1, time_stamp},
 		--[[ Osc 2 Semitone ]]
-		[36]={item = 139, value = -1, time_stamp = event.time_stamp},
-		[44]={item = 139,  value = 1, time_stamp = event.time_stamp},
+		[36]={item = 139, value = -1, time_stamp},
+		[44]={item = 139,  value = 1, time_stamp},
 		--[[ Osc 2 Fine Tune ]]
-		[37]={item = 140, value = -1, time_stamp = event.time_stamp},
-		[45]={item = 140,  value = 1, time_stamp = event.time_stamp},
+		[37]={item = 140, value = -1, time_stamp},
+		[45]={item = 140,  value = 1, time_stamp},
 			
 	}
 }
@@ -808,7 +809,7 @@ function remote_init()
         {name="p61",      input="button", output="value"},
         {name="p71",      input="button", output="value"}, 
         {name="p81",      input="button", output="value"}, 
-    --[[41
+    --[[41                              
       ]]{name="p12",      input="button", output="value"}, 
         {name="p22",      input="button", output="value"}, 
         {name="p32",      input="button", output="value"}, 
@@ -817,7 +818,7 @@ function remote_init()
         {name="p62",      input="button", output="value"}, 
         {name="p72",      input="button", output="value"}, 
         {name="p82",      input="button", output="value"}, 
-    --[[49
+    --[[49                              
       ]]{name="p13",      input="button", output="value"}, 
         {name="p23",      input="button", output="value"}, 
         {name="p33",      input="button", output="value"}, 
@@ -826,7 +827,7 @@ function remote_init()
         {name="p63",      input="button", output="value"}, 
         {name="p73",      input="button", output="value"}, 
         {name="p83",      input="button", output="value"}, 
-    --[[57
+    --[[57                              
       ]]{name="p14",      input="button", output="value"}, 
         {name="p24",      input="button", output="value"}, 
         {name="p34",      input="button", output="value"}, 
@@ -835,7 +836,7 @@ function remote_init()
         {name="p64",      input="button", output="value"}, 
         {name="p74",      input="button", output="value"}, 
         {name="p84",      input="button", output="value"}, 
-    --[[65
+    --[[65                              
       ]]{name="p15",      input="button", output="value"}, 
         {name="p25",      input="button", output="value"}, 
         {name="p35",      input="button", output="value"}, 
@@ -844,7 +845,7 @@ function remote_init()
         {name="p65",      input="button", output="value"}, 
         {name="p75",      input="button", output="value"}, 
         {name="p85",      input="button", output="value"}, 
-    --[[73
+    --[[73                              
       ]]{name="p16",      input="button", output="value"}, 
         {name="p26",      input="button", output="value"}, 
         {name="p36",      input="button", output="value"}, 
@@ -853,7 +854,7 @@ function remote_init()
         {name="p66",      input="button", output="value"}, 
         {name="p76",      input="button", output="value"}, 
         {name="p86",      input="button", output="value"}, 
-    --[[81
+    --[[81                              
       ]]{name="p17",      input="button", output="value"}, 
         {name="p27",      input="button", output="value"}, 
         {name="p37",      input="button", output="value"}, 
@@ -862,7 +863,7 @@ function remote_init()
         {name="p67",      input="button", output="value"}, 
         {name="p77",      input="button", output="value"}, 
         {name="p87",      input="button", output="value"}, 
-    --[[89
+    --[[89                              
       ]]{name="p18",      input="button", output="value"}, 
         {name="p28",      input="button", output="value"}, 
         {name="p38",      input="button", output="value"}, 
@@ -1194,6 +1195,7 @@ function remote_process_midi(event)
 	
 	local l_note = event[2] --[[Gets the note from the 'event']]
 	local l_vel  = event[3] --[[Gets the velocity from the 'event']]
+	
 	local action
 	local idx = nil
 	
@@ -1222,6 +1224,7 @@ function remote_process_midi(event)
 		for i = 1,64 do --[[ Loop 64 times for 64 pads, but break when i is found ]]
 			if ((remote.match_midi(pad_state.toggle[i][2],event) ~= nil)) then
 				idx = i
+
 				action = "press"
 				break
 			elseif ((remote.match_midi(pad_state.toggle[i][1],event) ~= nil)) then
@@ -1231,48 +1234,53 @@ function remote_process_midi(event)
 			end
 		end
 		
-		if (idx ~= nil and action == "press") then 
+		if (idx ~= nil) then --[[If idx was set above, continue, otherwise end. ]]
+			if (action == "press") then 
 
-		--[[ If any pad is pressed in programmer mode ]]
-			
-			out_midi = pad_state.toggle[idx][2]
-			
-			--[[ Validation by Device ]]	
-			
-			--[[ Subtractor ]]
-			if (devc_name == "subtractor") then
-			
-				if (devc_actions.subtractor[idx] ~= nil) then
+			--[[ If any pad is pressed in programmer mode ]]
 				
-					remote.handle_input(devc_actions.subtractor[idx])
-					return (true)
-			
-				else --[[ Handle the rest of the pads automatically.]]
-
-					msg = {item = 32+idx, value = 1, time_stamp = event.timestamp}
+				out_midi = pad_state.toggle[idx][2]
+				
+				--[[ Validation by Device ]]	
+				
+				--[[ Subtractor ]]
+				if (devc_name == "subtractor") then
+				
+					if (devc_actions.subtractor[idx] ~= nil) then
+						
+						devc_actions.subtractor[idx].time_stamp = event.time_stamp
+						remote.handle_input(devc_actions.subtractor[idx]) --[[Table of encoders]]
 					
-					--[[This is where the magic happens, and by magic, i mean infinite death. ]]
+						return (true)
+				
+					else --[[ Handle the rest of the pads automatically.]]
+						
+						msg = {item = 32+idx, value = 1, time_stamp = event.time_stamp}
+							
+						--[[This is where the magic happens, and by magic, i mean infinite death. ]]
+						
+						remote.handle_input(msg)
+						return (true)
+
+					end
+					
+				else --[[ Validate input from any pad if no other specific case match ]]
+					
+					msg = {item = 32+idx, value = 1, time_stamp = event.time_stamp}
 					remote.handle_input(msg)
-
-					return (true)
 					
+					return (true)
+		
 				end
+					
+			elseif (action == "release") then --[[ If any pad is released ]]
 				
-			else --[[ Validate input from any pad if no other specific case match ]]
-				
-				msg = {item = 32+idx, value = 1, time_stamp = event.timestamp}
+				out_midi = pad_state.toggle[idx][1]
+				msg = {item = 32+idx, value = 0, time_stamp = event.time_stamp}
 				remote.handle_input(msg)
-				return (true)
-	
-			end
-				
-		elseif (idx ~= nil and action == "release") then --[[ If any pad is released ]]
-			
-			out_midi = pad_state.toggle[idx][1]
-			msg = {item = 32+idx, value = 0, time_stamp = event.timestamp}
-			remote.handle_input(msg)
-			return (true)
+				return (true) 
 
+			end
 		end
 		
 	elseif (current_mode == sys_msg.auto_fade) then
@@ -1347,7 +1355,7 @@ function remote_process_midi(event)
 	
 end
 
-function remote_set_state(ci)
+function remote_set_state(ci) --[ ci is changed items ]]
 	
 	local get_midi = {}
 
@@ -1696,6 +1704,8 @@ end
 		Add an else catch-all in remote_deliver_midi so that other buttons at least light up when pressed.
 			The issue with this right now lies with the group buttons. we don't want those turning off.
 		
+		Done: Fix the error with buttons and encoders causing Reason to overflow the midi buffer
+		`````
 		Done: Get group functionality working (according to group, use different input items)
 		`````
 		Done: Use get_item_state to determine whether or not a certain device is selected, instead of the arrow keys.
