@@ -51,6 +51,7 @@ local sysx_trm = "F7"  --[[ sysx terminator as the last byte of any sysx message
 local msg = {}         --[[ Used in the remote_process_midi function                            ]]
 local current_mode     --[[ Holds the current mode (sysx message) in memory                     ]]
 local devc_name        --[[ Holds the text name of the selected device in memory                ]]
+local devc_init = true --[[ Handles first time loading of the codec for device displays         ]]
 local current_group= 9 --[[ Holds the currently selected input group in memory                  ]]
 local last_group   = 0 --[[ Holds the last used group in memory                                 ]]
 local hold = false     --[[ Used to see if a button is being held down. If so, don't repeat msg ]]
@@ -67,41 +68,41 @@ local  btn =
 	     different reference. 
 	  ]]
 	
-	up      = "B0 5B ",
-	down    = "B0 5C ",
-	left    = "B0 5D ",
-	right   = "B0 5E ",
-	session = "B? 5F ",
-	note    = "B? 60 ",
-	device  = "B? 61 ",
-	user    = "B? 62 ",
-	              
-	group1  = "B0 59 ",
-	group2  = "B0 4F ",
-	group3  = "B0 45 ",
-	group4  = "B0 3B ",
-	group5  = "B0 31 ",
-	group6  = "B0 27 ",
-	group7  = "B0 1D ",
-	group8  = "B0 13 ",
-	              
-	stop    = "B0 08 ",
-	send    = "B0 07 ",
-	pan     = "B0 06 ",
-	vol     = "B0 05 ",
-	solo    = "B0 04 ",
-	mute    = "B0 03 ",
-	trk_sel = "B0 02 ",
-	rec_arm = "B0 01 ",
-	              
-	rec     = "B0 0A ",
-	dbl     = "B0 14 ",
-	dupe    = "B0 1E ",
-	quant   = "B0 28 ",
-	del     = "B0 32 ",
-	undo    = "B0 3C ",
-	click   = "B0 46 ",
-	shift   = "B0 50 ",
+	[01] = "B? 5B ", --[[ up      ]]
+	[02] = "B? 5C ", --[[ down    ]]
+	[03] = "B? 5D ", --[[ left    ]]
+	[04] = "B? 5E ", --[[ right   ]]
+	[05] = "B? 5F ", --[[ session ]]
+	[06] = "B? 60 ", --[[ note    ]]
+	[07] = "B? 61 ", --[[ device  ]]
+	[08] = "B? 62 ", --[[ user    ]]
+	                 --[[         ]]
+	[09] = "B? 59 ", --[[ group1  ]]
+	[10] = "B? 4F ", --[[ group2  ]]
+	[11] = "B? 45 ", --[[ group3  ]]
+	[12] = "B? 3B ", --[[ group4  ]]
+	[13] = "B? 31 ", --[[ group5  ]]
+	[14] = "B? 27 ", --[[ group6  ]]
+	[15] = "B? 1D ", --[[ group7  ]]
+	[16] = "B? 13 ", --[[ group8  ]]
+	                 --[[         ]]
+	[17] = "B? 08 ", --[[ stop    ]]
+	[18] = "B? 07 ", --[[ send    ]]
+	[19] = "B? 06 ", --[[ pan     ]]
+	[20] = "B? 05 ", --[[ vol     ]]
+	[21] = "B? 04 ", --[[ solo    ]]
+	[22] = "B? 03 ", --[[ mute    ]]
+	[23] = "B? 02 ", --[[ trk_sel ]]
+	[24] = "B? 01 ", --[[ rec_arm ]]
+	                 --[[         ]]
+	[25] = "B? 0A ", --[[ rec     ]]
+	[26] = "B? 14 ", --[[ dbl     ]]
+	[27] = "B? 1E ", --[[ dupe    ]]
+	[28] = "B? 28 ", --[[ quant   ]]
+	[29] = "B? 32 ", --[[ del     ]]
+	[30] = "B? 3C ", --[[ undo    ]]
+	[31] = "B? 46 ", --[[ click   ]]
+	[32] = "B? 50 ", --[[ shift   ]]
 	
 	
 }   
@@ -112,77 +113,77 @@ local  pad =
 		Same as btn2{} but for the 64 pads in the center. 
 	  ]]
 	  
-	p11  = "90 0b ",
-    p21  = "90 0c ",
-    p31  = "90 0d ",
-    p41  = "90 0e ",
-    p51  = "90 0f ",
-    p61  = "90 10 ",
-    p71  = "90 11 ",
-    p81  = "90 12 ",
-               
-    p12  = "90 15 ",
-    p22  = "90 16 ",
-    p32  = "90 17 ",
-    p42  = "90 18 ",
-    p52  = "90 19 ",
-    p62  = "90 1a ",
-    p72  = "90 1b ",
-    p82  = "90 1c ",
-               
-    p13  = "90 1f ",
-    p23  = "90 20 ",
-    p33  = "90 21 ",
-    p43  = "90 22 ",
-    p53  = "90 23 ",
-    p63  = "90 24 ",
-    p73  = "90 25 ",
-    p83  = "90 26 ",
-               
-    p14  = "90 29 ",
-    p24  = "90 2a ",
-    p34  = "90 2b ",
-    p44  = "90 2c ",
-    p54  = "90 2d ",
-    p64  = "90 2e ",
-    p74  = "90 2f ",
-    p84  = "90 30 ",
-               
-    p15  = "90 33 ",
-    p25  = "90 34 ",
-    p35  = "90 35 ",
-    p45  = "90 36 ",
-    p55  = "90 37 ",
-    p65  = "90 38 ",
-    p75  = "90 39 ",
-    p85  = "90 3a ",
-               
-    p16  = "90 3d ",
-    p26  = "90 3e ",
-    p36  = "90 3f ",
-    p46  = "90 40 ",
-    p56  = "90 41 ",
-    p66  = "90 42 ",
-    p76  = "90 43 ",
-    p86  = "90 44 ",
-               
-    p17  = "90 47 ",
-    p27  = "90 48 ",
-    p37  = "90 49 ",
-    p47  = "90 4a ",
-    p57  = "90 4b ",
-    p67  = "90 4c ",
-    p77  = "90 4d ",
-    p87  = "90 4e ",
-               
-    p18  = "90 51 ",
-    p28  = "90 52 ",
-    p38  = "90 53 ",
-    p48  = "90 54 ",
-    p58  = "90 55 ",
-    p68  = "90 56 ",
-    p78  = "90 57 ",
-    p88  = "90 58 ",
+	p11  = "9? 0b ",
+    p21  = "9? 0c ",
+    p31  = "9? 0d ",
+    p41  = "9? 0e ",
+    p51  = "9? 0f ",
+    p61  = "9? 10 ",
+    p71  = "9? 11 ",
+    p81  = "9? 12 ",
+              
+    p12  = "9? 15 ",
+    p22  = "9? 16 ",
+    p32  = "9? 17 ",
+    p42  = "9? 18 ",
+    p52  = "9? 19 ",
+    p62  = "9? 1a ",
+    p72  = "9? 1b ",
+    p82  = "9? 1c ",
+              
+    p13  = "9? 1f ",
+    p23  = "9? 20 ",
+    p33  = "9? 21 ",
+    p43  = "9? 22 ",
+    p53  = "9? 23 ",
+    p63  = "9? 24 ",
+    p73  = "9? 25 ",
+    p83  = "9? 26 ",
+              
+    p14  = "9? 29 ",
+    p24  = "9? 2a ",
+    p34  = "9? 2b ",
+    p44  = "9? 2c ",
+    p54  = "9? 2d ",
+    p64  = "9? 2e ",
+    p74  = "9? 2f ",
+    p84  = "9? 30 ",
+              
+    p15  = "9? 33 ",
+    p25  = "9? 34 ",
+    p35  = "9? 35 ",
+    p45  = "9? 36 ",
+    p55  = "9? 37 ",
+    p65  = "9? 38 ",
+    p75  = "9? 39 ",
+    p85  = "9? 3a ",
+              
+    p16  = "9? 3d ",
+    p26  = "9? 3e ",
+    p36  = "9? 3f ",
+    p46  = "9? 40 ",
+    p56  = "9? 41 ",
+    p66  = "9? 42 ",
+    p76  = "9? 43 ",
+    p86  = "9? 44 ",
+              
+    p17  = "9? 47 ",
+    p27  = "9? 48 ",
+    p37  = "9? 49 ",
+    p47  = "9? 4a ",
+    p57  = "9? 4b ",
+    p67  = "9? 4c ",
+    p77  = "9? 4d ",
+    p87  = "9? 4e ",
+              
+    p18  = "9? 51 ",
+    p28  = "9? 52 ",
+    p38  = "9? 53 ",
+    p48  = "9? 54 ",
+    p58  = "9? 55 ",
+    p68  = "9? 56 ",
+    p78  = "9? 57 ",
+    p88  = "9? 58 ",
  
 }
 
@@ -213,40 +214,40 @@ local devc_actions =
 		--[[These number assignments correspond to the pad table, not the device table.]]
 		
 		--[[ Pitch range select ]]
-		[09]={item = 131, value = -1, time_stamp},
-		[17]={item = 131,  value = 1, time_stamp},
+		[09]={item = 163, value = -1, time_stamp},
+		[17]={item = 163,  value = 1, time_stamp},
 		
 		--[[ Poly select ]]
-		[10]={item = 132, value = -1, time_stamp},
-		[18]={item = 132,  value = 1, time_stamp},
+		[10]={item = 164, value = -1, time_stamp},
+		[18]={item = 164,  value = 1, time_stamp},
 		
 		--[[ Osc 1 Functions ]]
 		--[[ Osc 1 Wave ]]
-		[50]={item = 133, value = -1, time_stamp},	
-		[58]={item = 133,  value = 1, time_stamp},
+		[50]={item = 165, value = -1, time_stamp},	
+		[58]={item = 165,  value = 1, time_stamp},
 		--[[ Osc 1 Octave ]]
-		[51]={item = 134, value = -1, time_stamp},
-		[59]={item = 134,  value = 1, time_stamp},
+		[51]={item = 166, value = -1, time_stamp},
+		[59]={item = 166,  value = 1, time_stamp},
 		--[[ Osc 1 Semitone ]]
-		[52]={item = 135, value = -1, time_stamp},
-		[60]={item = 135,  value = 1, time_stamp},
+		[52]={item = 167, value = -1, time_stamp},
+		[60]={item = 167,  value = 1, time_stamp},
 		--[[ Osc 1 Fine Tune ]]
-		[53]={item = 136, value = -1, time_stamp},
-		[61]={item = 136,  value = 1, time_stamp},
+		[53]={item = 168, value = -1, time_stamp},
+		[61]={item = 168,  value = 1, time_stamp},
 			
 		--[[ Osc 2 Functions ]]
 		--[[ Osc 2 Wave ]]
-		[34]={item = 137, value = -1, time_stamp},
-		[42]={item = 137,  value = 1, time_stamp},
+		[34]={item = 169, value = -1, time_stamp},
+		[42]={item = 169,  value = 1, time_stamp},
 		--[[ Osc 2 Octave ]]
-		[35]={item = 138, value = -1, time_stamp},
-		[43]={item = 138,  value = 1, time_stamp},
+		[35]={item = 170, value = -1, time_stamp},
+		[43]={item = 170,  value = 1, time_stamp},
 		--[[ Osc 2 Semitone ]]
-		[36]={item = 139, value = -1, time_stamp},
-		[44]={item = 139,  value = 1, time_stamp},
+		[36]={item = 171, value = -1, time_stamp},
+		[44]={item = 171,  value = 1, time_stamp},
 		--[[ Osc 2 Fine Tune ]]
-		[37]={item = 140, value = -1, time_stamp},
-		[45]={item = 140,  value = 1, time_stamp},
+		[37]={item = 172, value = -1, time_stamp},
+		[45]={item = 172,  value = 1, time_stamp},
 			
 	}
 }
@@ -339,48 +340,48 @@ local btn_state =
   ||     [4] = on  -----------|
   ||
   || A typical reference to a button would be: 
-  || btn_state[3][1] -- btn.left in the down btn_state.
-  || btn_state[3][2] -- btn.left in the up btn_state.
-  || btn_state[3][3] -- btn.left full off  (00)
-  || btn_state[3][4] -- btn.left full on   (7F)
+  || btn_state[3][1] -- btn[03] in the down btn_state.
+  || btn_state[3][2] -- btn[03] in the up btn_state.
+  || btn_state[3][3] -- btn[03] full off  (00)
+  || btn_state[3][4] -- btn[03] full on   (7F)
   ]]
 
 --[[01
-  ]]{btn.up     ..color.viol.D, btn.up     ..color.viol.B, btn.up     ..off, btn.up     ..on},  
-    {btn.down   ..color.viol.D, btn.down   ..color.viol.B, btn.down   ..off, btn.down   ..on}, 
-    {btn.left   ..color.turq.D, btn.left   ..color.turq.B, btn.left   ..off, btn.left   ..on}, 
-    {btn.right  ..color.turq.D, btn.right  ..color.turq.B, btn.right  ..off, btn.right  ..on}, 
-    {btn.session..color.gry3.D, btn.session..color.ylow.B, btn.session..off, btn.session..on}, 
-    {btn.note   ..color.gry3.D, btn.note   ..color.blue.B, btn.note   ..off, btn.note   ..on}, 
-    {btn.device ..color.gry3.D, btn.device  ..color.grn.B, btn.device ..off, btn.device ..on}, 
-    {btn.user   ..color.gry3.D, btn.user   ..color.pink.B, btn.user   ..off, btn.user   ..on}, 
---[[09                                                                
-  ]]{btn.group1 ..color.wood.D, btn.group1 ..color.wood.B, btn.group1 ..off, btn.group1 ..on}, 
-    {btn.group2 ..color.wood.D, btn.group2 ..color.wood.B, btn.group2 ..off, btn.group2 ..on}, 
-    {btn.group3 ..color.wood.D, btn.group3 ..color.wood.B, btn.group3 ..off, btn.group3 ..on}, 
-    {btn.group4 ..color.wood.D, btn.group4 ..color.wood.B, btn.group4 ..off, btn.group4 ..on}, 
-    {btn.group5 ..color.wood.D, btn.group5 ..color.wood.B, btn.group5 ..off, btn.group5 ..on}, 
-    {btn.group6 ..color.wood.D, btn.group6 ..color.wood.B, btn.group6 ..off, btn.group6 ..on}, 
-    {btn.group7 ..color.wood.D, btn.group7 ..color.wood.B, btn.group7 ..off, btn.group7 ..on}, 
-    {btn.group8 ..color.wood.D, btn.group8 ..color.wood.B, btn.group8 ..off, btn.group8 ..on}, 
---[[17                                                            
-  ]]{btn.stop   ..color.rorg.D, btn.stop   ..color.rorg.B, btn.stop   ..off, btn.stop   ..on}, 
-    {btn.send   ..color.grey.D, btn.send   ..color.grey.B, btn.send   ..off, btn.send   ..on}, 
-    {btn.pan    ..color.grey.D, btn.pan    ..color.grey.B, btn.pan    ..off, btn.pan    ..on}, 
-    {btn.vol    ..color.grey.D, btn.vol    ..color.grey.B, btn.vol    ..off, btn.vol    ..on}, 
-    {btn.solo   ..color.lime.D, btn.solo   ..color.lime.B, btn.solo   ..off, btn.solo   ..on}, 
-    {btn.mute   ..color.pink.D, btn.mute   ..color.pink.B, btn.mute   ..off, btn.mute   ..on}, 
-    {btn.trk_sel..color.grey.D, btn.trk_sel..color.grey.B, btn.trk_sel..off, btn.trk_sel..on}, 
-    {btn.rec_arm..color.rorg.D, btn.rec_arm..color.rorg.B, btn.rec_arm..off, btn.rec_arm..on}, 
---[[25                                                              
-  ]]{btn.rec     ..color.red.D, btn.rec     ..color.red.B, btn.rec    ..off, btn.rec    ..on}, 
-    {btn.dbl    ..color.grey.D, btn.dbl    ..color.grey.B, btn.dbl    ..off, btn.dbl    ..on},               
-    {btn.dupe   ..color.grey.D, btn.dupe   ..color.grey.B, btn.dupe   ..off, btn.dupe   ..on}, 
-    {btn.quant  ..color.orng.D, btn.quant  ..color.orng.B, btn.quant  ..off, btn.quant  ..on}, 
-    {btn.del    ..color.viol.D, btn.del    ..color.viol.B, btn.del    ..off, btn.del    ..on}, 
-    {btn.undo   ..color.viol.D, btn.undo   ..color.viol.B, btn.undo   ..off, btn.undo   ..on}, 
-    {btn.click  ..color.turq.D, btn.click  ..color.turq.B, btn.click  ..off, btn.click  ..on}, 
-    {btn.shift  ..color.turq.D, btn.shift  ..color.turq.B, btn.shift  ..off, btn.shift  ..on},
+  ]]{btn[01]..color.viol.D, btn[01]..color.viol.B, btn[01]..off, btn[01]..on},  --[[ up      ]]
+    {btn[02]..color.viol.D, btn[02]..color.viol.B, btn[02]..off, btn[02]..on},  --[[ down    ]]
+    {btn[03]..color.turq.D, btn[03]..color.turq.B, btn[03]..off, btn[03]..on},  --[[ left    ]]
+    {btn[04]..color.turq.D, btn[04]..color.turq.B, btn[04]..off, btn[04]..on},  --[[ right   ]]
+    {btn[05]..color.gry3.D, btn[05]..color.ylow.B, btn[05]..off, btn[05]..on},  --[[ session ]]
+    {btn[06]..color.gry3.D, btn[06]..color.blue.B, btn[06]..off, btn[06]..on},  --[[ note    ]]
+    {btn[07]..color.gry3.D, btn[07] ..color.grn.B, btn[07]..off, btn[07]..on},  --[[ device  ]]
+    {btn[08]..color.gry3.D, btn[08]..color.pink.B, btn[08]..off, btn[08]..on},  --[[ user    ]]
+--[[09                                                                          
+  ]]{btn[09]..color.wood.D, btn[09]..color.wood.B, btn[09]..off, btn[09]..on},  --[[ group1  ]]
+    {btn[10]..color.wood.D, btn[10]..color.wood.B, btn[10]..off, btn[10]..on},  --[[ group2  ]]
+    {btn[11]..color.wood.D, btn[11]..color.wood.B, btn[11]..off, btn[11]..on},  --[[ group3  ]]
+    {btn[12]..color.wood.D, btn[12]..color.wood.B, btn[12]..off, btn[12]..on},  --[[ group4  ]]
+    {btn[13]..color.wood.D, btn[13]..color.wood.B, btn[13]..off, btn[13]..on},  --[[ group5  ]]
+    {btn[14]..color.wood.D, btn[14]..color.wood.B, btn[14]..off, btn[14]..on},  --[[ group6  ]]
+    {btn[15]..color.wood.D, btn[15]..color.wood.B, btn[15]..off, btn[15]..on},  --[[ group7  ]]
+    {btn[16]..color.wood.D, btn[16]..color.wood.B, btn[16]..off, btn[16]..on},  --[[ group8  ]]
+--[[17                                                                         
+  ]]{btn[17]..color.rorg.D, btn[17]..color.rorg.B, btn[17]..off, btn[17]..on},  --[[ stop    ]]
+    {btn[18]..color.grey.D, btn[18]..color.grey.B, btn[18]..off, btn[18]..on},  --[[ send    ]]
+    {btn[19]..color.grey.D, btn[19]..color.grey.B, btn[19]..off, btn[19]..on},  --[[ pan     ]]
+    {btn[20]..color.grey.D, btn[20]..color.grey.B, btn[20]..off, btn[20]..on},  --[[ vol     ]]
+    {btn[21]..color.lime.D, btn[21]..color.lime.B, btn[21]..off, btn[21]..on},  --[[ solo    ]]
+    {btn[22]..color.pink.D, btn[22]..color.pink.B, btn[22]..off, btn[22]..on},  --[[ mute    ]]
+    {btn[23]..color.grey.D, btn[23]..color.grey.B, btn[23]..off, btn[23]..on},  --[[ trk_sel ]]
+    {btn[24]..color.rorg.D, btn[24]..color.rorg.B, btn[24]..off, btn[24]..on},  --[[ rec_arm ]]
+--[[25                                                                          
+  ]]{btn[25] ..color.red.D, btn[25] ..color.red.B, btn[25]..off, btn[25]..on},  --[[ rec     ]]
+    {btn[26]..color.grey.D, btn[26]..color.grey.B, btn[26]..off, btn[26]..on},  --[[ dbl     ]]             
+    {btn[27]..color.grey.D, btn[27]..color.grey.B, btn[27]..off, btn[27]..on},  --[[ dupe    ]]
+    {btn[28]..color.orng.D, btn[28]..color.orng.B, btn[28]..off, btn[28]..on},  --[[ quant   ]]
+    {btn[29]..color.viol.D, btn[29]..color.viol.B, btn[29]..off, btn[29]..on},  --[[ del     ]]
+    {btn[30]..color.viol.D, btn[30]..color.viol.B, btn[30]..off, btn[30]..on},  --[[ undo    ]]
+    {btn[31]..color.turq.D, btn[31]..color.turq.B, btn[31]..off, btn[31]..on},  --[[ click   ]]
+    {btn[32]..color.turq.D, btn[32]..color.turq.B, btn[32]..off, btn[32]..on},  --[[ shift   ]]
 	
 }
 
@@ -549,8 +550,8 @@ local pad_state =
 		[0039]={pad.p71..color.turq.D, pad.p71..color.turq.D}, --[[ Border ]]
 		[0040]={pad.p81..color.turq.D, pad.p81..color.turq.D}, --[[ Border ]]  
 	    
-		[0131]={pad.p12..color.turq.D, pad.p12..color.turq.B}, --[[ Pitch Bend Rng Down *encoder*]]
-		[0132]={pad.p22..color.turq.D, pad.p22..color.turq.B}, --[[ Polyphony Down      *encoder*]]
+		[0163]={pad.p12..color.turq.D, pad.p12..color.red.V }, --[[ Pitch Bend Rng Down *encoder*]]
+		[0164]={pad.p22..color.turq.D, pad.p22..color.red.V }, --[[ Polyphony Down      *encoder*]]
 		[0043]={pad.p32..color.gry2.D, pad.p32..color.grey.B}, --[[ LFO 1 Waveform      ]]
 		[0044]={pad.p42..color.gry2.D, pad.p42..color.grey.B}, --[[ LFO 1 Destination   ]]
 		[0045]={pad.p52..         off, pad.p52..         off},
@@ -558,8 +559,8 @@ local pad_state =
 		[0047]={pad.p72..         off, pad.p72..         off},
 		[0048]={pad.p82..         off, pad.p82..         off}, 
 		
-		[7131]={pad.p13..color.turq.B, pad.p13..color.turq.D}, --[[ Pitch Bend Range Up *encoder*]]
-		[7132]={pad.p23..color.turq.B, pad.p23..color.turq.D}, --[[ Polyphony Up        *encoder*]]
+		[7163]={pad.p13..color.turq.B, pad.p13..color.red.V }, --[[ Pitch Bend Range Up *encoder*]]
+		[7164]={pad.p23..color.turq.B, pad.p23..color.red.V }, --[[ Polyphony Up        *encoder*]]
 		[0051]={pad.p33.. color.red.W, pad.p33.. color.red.B}, --[[ LFO 1 Sync          ]]
 		[0052]={pad.p43..         off, pad.p43..         off},
 		[0053]={pad.p53..         off, pad.p53..         off},
@@ -577,37 +578,37 @@ local pad_state =
 		[0064]={pad.p84..         off, pad.p84..         off},
 	
 		[0065]={pad.p15..color.gry2.D, pad.p15..color.gry2.B}, --[[ Osc 2 Mode          ]]
-		[0137]={pad.p25..color.turq.D, pad.p25..color.turq.B}, --[[ Osc 2 Waveform Down *encoder*]]
-		[0138]={pad.p35..color.turq.D, pad.p35..color.turq.B}, --[[ Osc 2 Octave Down   *encoder*]]
-		[0139]={pad.p45..color.turq.D, pad.p45..color.turq.B}, --[[ Osc 2 Semi Down     *encoder*]]
-		[0140]={pad.p55..color.turq.D, pad.p55..color.turq.B}, --[[ Osc 2 Cent Down     *encoder*]]
+		[0169]={pad.p25..color.turq.D, pad.p25..color.red.V }, --[[ Osc 2 Waveform Down *encoder*]]
+		[0170]={pad.p35..color.turq.D, pad.p35..color.red.V }, --[[ Osc 2 Octave Down   *encoder*]]
+		[0171]={pad.p45..color.turq.D, pad.p45..color.red.V }, --[[ Osc 2 Semi Down     *encoder*]]
+		[0172]={pad.p55..color.turq.D, pad.p55..color.red.V }, --[[ Osc 2 Cent Down     *encoder*]]
 		[0070]={pad.p65.. color.red.W, pad.p65.. color.red.B}, --[[ Ring Mod Toggle     ]]
 		[0071]={pad.p75..         off, pad.p75..         off},
 		[0072]={pad.p85..         off, pad.p85..         off},
 	     
 		[0073]={pad.p16.. color.red.W, pad.p16.. color.red.B}, --[[ Osc 2 Enable        ]]
-		[7137]={pad.p26..color.turq.B, pad.p26..color.turq.D}, --[[ Osc 2 Waveform Up   *encoder*]]
-		[7138]={pad.p36..color.turq.B, pad.p36..color.turq.D}, --[[ Osc 2 Octave Up     *encoder*]]
-		[7139]={pad.p46..color.turq.B, pad.p46..color.turq.D}, --[[ Osc 2 Semi up       *encoder*]]
-		[7140]={pad.p56..color.turq.B, pad.p56..color.turq.D}, --[[ Osc 2 Cent Up       *encoder*]]
+		[7169]={pad.p26..color.turq.B, pad.p26..color.red.V }, --[[ Osc 2 Waveform Up   *encoder*]]
+		[7170]={pad.p36..color.turq.B, pad.p36..color.red.V }, --[[ Osc 2 Octave Up     *encoder*]]
+		[7171]={pad.p46..color.turq.B, pad.p46..color.red.V }, --[[ Osc 2 Semi up       *encoder*]]
+		[7172]={pad.p56..color.turq.B, pad.p56..color.red.V }, --[[ Osc 2 Cent Up       *encoder*]]
 		[0078]={pad.p66..         off, pad.p66..         off},
 		[0079]={pad.p76..         off, pad.p76..         off},
 		[0080]={pad.p86..         off, pad.p86..         off},
 					                	
 		[0081]={pad.p17..color.gry2.D, pad.p17..color.gry2.B}, --[[ Osc 1 Mode          ]]
-		[0133]={pad.p27..color.turq.D, pad.p27..color.turq.B}, --[[ Osc 1 Waveform Down *encoder*]]
-		[0134]={pad.p37..color.turq.D, pad.p37..color.turq.B}, --[[ Osc 1 Octave Down   *encoder*]]
-		[0135]={pad.p47..color.turq.D, pad.p47..color.turq.B}, --[[ Osc 1 Semi Down     *encoder*]]
-		[0136]={pad.p57..color.turq.D, pad.p57..color.turq.B}, --[[ Osc 1 Cent Down     *encoder*]]
+		[0165]={pad.p27..color.turq.D, pad.p27..color.red.V }, --[[ Osc 1 Waveform Down *encoder*]]
+		[0166]={pad.p37..color.turq.D, pad.p37..color.red.V }, --[[ Osc 1 Octave Down   *encoder*]]
+		[0167]={pad.p47..color.turq.D, pad.p47..color.red.V }, --[[ Osc 1 Semi Down     *encoder*]]
+		[0168]={pad.p57..color.turq.D, pad.p57..color.red.V }, --[[ Osc 1 Cent Down     *encoder*]]
 		[0086]={pad.p67..         off, pad.p67..         off},
 		[0087]={pad.p77..color.gry2.D, pad.p77..color.grey.B}, --[[ Filter 1 Type       ]]
 		[0088]={pad.p87..         off, pad.p87..         off},
 		                            
 		[0089]={pad.p18..color.gry2.D, pad.p18..color.grey.B}, --[[ Note Mode           ]]
-		[7133]={pad.p28..color.turq.B, pad.p28..color.turq.D}, --[[ Osc 1 Waveform Up   *encoder*]]
-		[7134]={pad.p38..color.turq.B, pad.p38..color.turq.D}, --[[ Osc 1 Octave Up     *encoder*]]
-		[7135]={pad.p48..color.turq.B, pad.p48..color.turq.D}, --[[ Osc 1 Semi up       *encoder*]]
-		[7136]={pad.p58..color.turq.B, pad.p58..color.turq.D}, --[[ Osc 1 Cent Up       *encoder*]]
+		[7165]={pad.p28..color.turq.B, pad.p28..color.red.V }, --[[ Osc 1 Waveform Up   *encoder*]]
+		[7166]={pad.p38..color.turq.B, pad.p38..color.red.V }, --[[ Osc 1 Octave Up     *encoder*]]
+		[7167]={pad.p48..color.turq.B, pad.p48..color.red.V }, --[[ Osc 1 Semi up       *encoder*]]
+		[7168]={pad.p58..color.turq.B, pad.p58..color.red.V }, --[[ Osc 1 Cent Up       *encoder*]]
 		[0094]={pad.p68..         off, pad.p68..         off},
 		[0095]={pad.p78.. color.red.W, pad.p78.. color.red.B}, --[[ Filter Link         ]]
 		[0096]={pad.p88.. color.red.W, pad.p88.. color.red.B}, --[[ Filter 2 Toggle     ]]
@@ -705,7 +706,11 @@ local fdr_state =
 	},
 	
 	subtractor =
-	{ --[[ Fader definitions by group. note the sysx_trm lines, those aren't used in the group. ]]
+	{ --[[ Fader definitions by group. note the sysx_trm lines, those aren't used in 
+	       the group and will appear red. 
+		   If the 3rd byte is 00, the fader type will normally start at 0.
+		   If the 3rd byte is 01, the fader type will normally start at a middle value.    ]]
+		   
 		g1 =
 		{
 			sysx_hdr.."2B 00 00 "..color.turq.D,
@@ -724,22 +729,48 @@ local fdr_state =
 			sysx_hdr.."2B 01 00 "..color.turq.B,
 			sysx_hdr.."2B 02 00 "..color.turq.B,
 			sysx_hdr.."2B 03 00 "..color.turq.B,
-			sysx_hdr.."2B 04 01 "..color.blue.D,
+			sysx_hdr.."2B 04 00 "..color.blue.D,
 			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
 			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
-			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.grn.V ,
 		},
+		
 		g3 = 
 		{
 			sysx_hdr.."2B 00 00 "..color.blue.D,
 			sysx_hdr.."2B 01 00 "..color.blue.D,
 			sysx_hdr.."2B 02 00 "..color.blue.D,
 			sysx_hdr.."2B 03 00 "..color.blue.D,
-			sysx_hdr.."2B 04 01 "..color.blue.B,
+			sysx_hdr.."2B 04 00 "..color.blue.B,
 			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
 			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
 			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
 		},
+		
+		g4 =
+		{
+			sysx_hdr.."2B 00 01 "..color.turq.D,
+			sysx_hdr.."2B 01 01 "..color.turq.D,
+			sysx_hdr.."2B 02 00 "..color.turq.D,
+			sysx_hdr.."2B 03 01 "..color.turq.D,
+			sysx_hdr.."2B 04 00 "..color.ylow.D,
+			sysx_hdr.."2B 05 00 "..color.ylow.D,
+			sysx_hdr.."2B 06 00 "..color.ylow.D,
+			sysx_hdr.."2B 07 00 "..color.turq.B,			
+		},	
+		
+		g5 =
+		{
+			sysx_hdr.."2B 00 01 "..color.turq.D,
+			sysx_hdr.."2B 01 00 "..color.turq.B,
+			sysx_hdr.."2B 02 01 "..color.turq.D,
+			sysx_hdr.."2B 03 00 "..color.turq.B,
+			sysx_hdr.."2B 04 00 "..color.turq.B,
+			sysx_hdr.."2B 05 00 "..color.turq.B,
+			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,			
+		},
+		
 	},
 	
 }
@@ -924,9 +955,49 @@ function remote_init()
         {name="fdr29",      input="value", output="value", min=0 , max=127},
         {name="fdr30",      input="value", output="value", min=0 , max=127},
         {name="fdr31",      input="value", output="value", min=0 , max=127},
-        {name="fdr32",      input="value", output="value", min=0 , max=127},
+        {name="fdr32",      input="value", output="value", min=0 , max=127},	
 		
-	--[[131
+	--[[131	
+      ]]{name="fdr33",      input="value", output="value", min=0 , max=127},
+        {name="fdr34",      input="value", output="value", min=0 , max=127},
+        {name="fdr35",      input="value", output="value", min=0 , max=127},
+        {name="fdr36",      input="value", output="value", min=0 , max=127},
+        {name="fdr37",      input="value", output="value", min=0 , max=127},
+        {name="fdr38",      input="value", output="value", min=0 , max=127},
+        {name="fdr39",      input="value", output="value", min=0 , max=127},
+        {name="fdr40",      input="value", output="value", min=0 , max=127},	
+		
+	--[[139	
+      ]]{name="fdr41",      input="value", output="value", min=0 , max=127},
+        {name="fdr42",      input="value", output="value", min=0 , max=127},
+        {name="fdr43",      input="value", output="value", min=0 , max=127},
+        {name="fdr44",      input="value", output="value", min=0 , max=127},
+        {name="fdr45",      input="value", output="value", min=0 , max=127},
+        {name="fdr46",      input="value", output="value", min=0 , max=127},
+        {name="fdr47",      input="value", output="value", min=0 , max=127},
+        {name="fdr48",      input="value", output="value", min=0 , max=127},	
+		
+	--[[147	
+      ]]{name="fdr49",      input="value", output="value", min=0 , max=127},
+        {name="fdr50",      input="value", output="value", min=0 , max=127},
+        {name="fdr51",      input="value", output="value", min=0 , max=127},
+        {name="fdr52",      input="value", output="value", min=0 , max=127},
+        {name="fdr53",      input="value", output="value", min=0 , max=127},
+        {name="fdr54",      input="value", output="value", min=0 , max=127},
+        {name="fdr55",      input="value", output="value", min=0 , max=127},
+        {name="fdr56",      input="value", output="value", min=0 , max=127},
+		
+	--[[155	
+      ]]{name="fdr57",      input="value", output="value", min=0 , max=127},
+        {name="fdr58",      input="value", output="value", min=0 , max=127},
+        {name="fdr59",      input="value", output="value", min=0 , max=127},
+        {name="fdr60",      input="value", output="value", min=0 , max=127},
+        {name="fdr61",      input="value", output="value", min=0 , max=127},
+        {name="fdr62",      input="value", output="value", min=0 , max=127},
+        {name="fdr63",      input="value", output="value", min=0 , max=127},
+        {name="fdr64",      input="value", output="value", min=0 , max=127},
+		
+	--[[163
 	  ]]{name="sub_enc_pitch",         input="delta", output="value", min=0  , max=24},
 	    {name="sub_enc_poly",          input="delta", output="value", min=1  , max=99},
 		{name="sub_enc_wave_1",        input="delta", output="value", min=0  , max=31},
@@ -983,7 +1054,11 @@ function set_prog()
 				v = remote.get_item_value(i)
 				table.insert(prog_midi, remote.make_midi(x[v+1]))
 				
-			elseif (131 <= i and i <= 140) then
+			elseif (163 <= i and i <= 172) then
+			
+				table.insert(prog_midi, remote.make_midi(x[1]))
+				
+			elseif (7163 <= i and i <= 7172) then
 			
 				table.insert(prog_midi, remote.make_midi(x[1]))
 			
@@ -1013,15 +1088,18 @@ function set_fade()
 
 			if (current_group == 9) then
 			
-				k = to_hex(remote.get_item_value(98+i)).." "
-				table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g1[i]..k..sysx_trm))
+					k = to_hex(remote.get_item_value(98+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g1[i]..k..sysx_trm))
 				
 			elseif (current_group == 10) then
 			
 				if (i <= 5) then
 					k = to_hex(remote.get_item_value(106+i)).." "
 					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g2[i]..k..sysx_trm))
-				elseif (i > 5) then
+				elseif (i == 8) then
+					k = to_hex(remote.get_item_value(106+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g2[i]..k..sysx_trm))
+				elseif (5 < i or i < 8) then
 					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g2[i]))
 				end
 				
@@ -1032,7 +1110,21 @@ function set_fade()
 					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g3[i]..k..sysx_trm))
 				elseif (i > 5) then
 					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g3[i]))
-				end
+				end	
+				
+			elseif (current_group == 12) then
+			
+					k = to_hex(remote.get_item_value(122+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g4[i]..k..sysx_trm))
+				
+			elseif (current_group == 13) then
+			
+				if (i <= 6) then
+					k = to_hex(remote.get_item_value(130+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g5[i]..k..sysx_trm))
+				elseif (i > 6) then
+					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g5[i]))
+				end	
 				
 			end
 		end
@@ -1224,7 +1316,6 @@ function remote_process_midi(event)
 		for i = 1,64 do --[[ Loop 64 times for 64 pads, but break when i is found ]]
 			if ((remote.match_midi(pad_state.toggle[i][2],event) ~= nil)) then
 				idx = i
-
 				action = "press"
 				break
 			elseif ((remote.match_midi(pad_state.toggle[i][1],event) ~= nil)) then
@@ -1237,10 +1328,9 @@ function remote_process_midi(event)
 		if (idx ~= nil) then --[[If idx was set above, continue, otherwise end. ]]
 			if (action == "press") then 
 
-			--[[ If any pad is pressed in programmer mode ]]
-				
+				--[[ If any pad is pressed in programmer mode ]]				
 				out_midi = pad_state.toggle[idx][2]
-				
+
 				--[[ Validation by Device ]]	
 				
 				--[[ Subtractor ]]
@@ -1274,7 +1364,7 @@ function remote_process_midi(event)
 				end
 					
 			elseif (action == "release") then --[[ If any pad is released ]]
-				
+			
 				out_midi = pad_state.toggle[idx][1]
 				msg = {item = 32+idx, value = 0, time_stamp = event.time_stamp}
 				remote.handle_input(msg)
@@ -1308,12 +1398,33 @@ function remote_process_midi(event)
 					msg = {item = 122+i, value = tonumber(event[3]), time_stamp = event.time_stamp}
 					remote.handle_input(msg)
 					return (true)
+					
+				elseif (current_group == 13) then
+					msg = {item = 130+i, value = tonumber(event[3]), time_stamp = event.time_stamp}
+					remote.handle_input(msg)
+					return (true)
+					
+				elseif (current_group == 14) then
+					msg = {item = 138+i, value = tonumber(event[3]), time_stamp = event.time_stamp}
+					remote.handle_input(msg)
+					return (true)	
+					
+				elseif (current_group == 15) then
+					msg = {item = 146+i, value = tonumber(event[3]), time_stamp = event.time_stamp}
+					remote.handle_input(msg)
+					return (true)	
+					
+				elseif (current_group == 16) then
+					msg = {item = 154+i, value = tonumber(event[3]), time_stamp = event.time_stamp}
+					remote.handle_input(msg)
+					return (true)
+					
 				end
 			end	
 		end	
 	end
 	
-	--[[ Validate input from any button in any mode]]
+	--[[ Validate input from any button in any mode. Buttons are handled last due to priority.]]
 	if (remote.match_midi("B? yy zz", event) ~= nil) then
 		
 		for i = 1,32 do
@@ -1359,24 +1470,25 @@ function remote_set_state(ci) --[ ci is changed items ]]
 	
 	local get_midi = {}
 
-	--[[count = count + 1
-	table.insert(errors, ci)
-	
-	if count == 100 then error(tblprint(errors, 3)) end]]
-
-	if (table.getn(ci) ~= 0) then
+	if (table.getn(ci) ~= 0) then --[[ If changed items (ci) isn't empty ]]
 		
 		for i,index in ipairs(ci) do	
 			
 			if (index == 98 and remote.get_item_text_value(index) ~= devc_name) then --[[ If the device changed ]]
-				last_devc_name = devc_name
-				devc_name = remote.get_item_text_value(index)
-				devc_switch()
+				last_devc_name = devc_name                                           --[[ Put the current in last ]]
+				devc_name = remote.get_item_text_value(index)                        --[[ set current to the get ]]
+				devc_switch()                                                       
 			end
 			
 		end	
-	
+		
+		if (devc_init == true) then --[[On startup, if the device is selected, it'll set the layout.]]
+			devc_init = false
+			state_midi = set_prog()
+		end
+		
 		if (current_mode == sys_msg.auto_prog) then
+
 			for i,index in ipairs(ci) do
 			
 				if (devc_name == "subtractor") then
@@ -1384,12 +1496,9 @@ function remote_set_state(ci) --[ ci is changed items ]]
 						local k = index
 						local v = remote.get_item_value(index)
 						table.insert(state_midi, remote.make_midi(pad_state.subtractor[k][v+1]))
+					--[[ For encoders, refer to RDM, since encoders are variable and using state
+					     to determine what they look like would be rather convoluted.]]
 
-					elseif ((131 <= index and index <= 140) and remote.is_item_enabled(index) == true) then --[[ If the encoders changed ]]
-						local d = index
-						local u = index+7000
-						table.insert(state_midi, remote.make_midi(pad_state.subtractor[d][1]))
-						table.insert(state_midi, remote.make_midi(pad_state.subtractor[u][1]))
 					end
 					
 				else
@@ -1404,7 +1513,7 @@ function remote_set_state(ci) --[ ci is changed items ]]
 				local k
 				local v
 			
-			    if (99 <= index and index <= 130) then
+			    if (99 <= index and index <= 162) then
 				
 					k = math.mod(index-99,8)+1 --[[ 1 - 8 from any group based on the index ]]
 					v = remote.get_item_value(index)
@@ -1433,6 +1542,30 @@ function remote_set_state(ci) --[ ci is changed items ]]
 				 and current_group == 12
      			 and remote.is_item_enabled(index) == true) then
 				 
+					table.insert(state_midi, remote.make_midi(fdr[k]..to_hex(v)))	
+					
+				elseif ((131 <= index and index <= 138)
+				 and current_group == 13
+     			 and remote.is_item_enabled(index) == true) then
+				 
+					table.insert(state_midi, remote.make_midi(fdr[k]..to_hex(v)))	
+					
+				elseif ((139 <= index and index <= 146)
+				 and current_group == 14
+     			 and remote.is_item_enabled(index) == true) then
+				 
+					table.insert(state_midi, remote.make_midi(fdr[k]..to_hex(v)))	
+					
+				elseif ((147 <= index and index <= 154)
+				 and current_group == 15
+     			 and remote.is_item_enabled(index) == true) then
+				 
+					table.insert(state_midi, remote.make_midi(fdr[k]..to_hex(v)))	
+					
+				elseif ((155 <= index and index <= 162)
+				 and current_group == 16
+     			 and remote.is_item_enabled(index) == true) then
+				 
 					table.insert(state_midi, remote.make_midi(fdr[k]..to_hex(v)))
 					
 				end
@@ -1459,10 +1592,139 @@ function remote_deliver_midi()
 	
 	--[[Don't process anything if out_midi is nil.]]
 	if (out_midi ~= nil) then
-	
+		
+		--[[ Pad logic ]]
+		if (current_mode == sys_msg.auto_prog and string.match(out_midi, "9.*") ~= nil) then
+		
+			pad_prs = true
+			
+			for i = 1,64 do
+				if (out_midi == pad_state.toggle[i][2]) then
+					action = "press"
+					idx = i
+					break
+				elseif (out_midi == pad_state.toggle[i][1]) then
+					action = "release"
+					idx = i
+					break
+				end
+			end	
+			
+			if (action == "press" and hold ~= true) then
+
+				hold = true		
+				
+				if (devc_name == "subtractor") then
+				
+					--[[ Encoders should be displayed with each press since they don't have a set state like buttons ]] 
+					if     (out_midi == pad_state.toggle[09][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0163][2]))
+					elseif (out_midi == pad_state.toggle[10][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0164][2]))	
+						
+					elseif (out_midi == pad_state.toggle[17][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7163][2]))
+					elseif (out_midi == pad_state.toggle[18][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7164][2]))
+						
+					elseif (out_midi == pad_state.toggle[34][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0169][2]))	
+					elseif (out_midi == pad_state.toggle[35][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0170][2]))
+					elseif (out_midi == pad_state.toggle[36][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0171][2]))
+					elseif (out_midi == pad_state.toggle[37][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0172][2]))					
+					elseif (out_midi == pad_state.toggle[42][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7169][2]))
+					elseif (out_midi == pad_state.toggle[43][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7170][2]))
+					elseif (out_midi == pad_state.toggle[44][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7171][2]))
+					elseif (out_midi == pad_state.toggle[45][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7172][2]))
+						
+					elseif (out_midi == pad_state.toggle[50][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0165][2]))
+					elseif (out_midi == pad_state.toggle[51][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0166][2]))
+					elseif (out_midi == pad_state.toggle[52][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0167][2]))
+					elseif (out_midi == pad_state.toggle[53][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0168][2]))
+					elseif (out_midi == pad_state.toggle[58][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7165][2]))
+					elseif (out_midi == pad_state.toggle[59][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7166][2]))
+					elseif (out_midi == pad_state.toggle[60][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7167][2]))
+					elseif (out_midi == pad_state.toggle[61][2]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[7168][2]))
+					end
+				end
+				
+			elseif (action == "release" and hold ~= false) then
+				
+					hold = false
+					
+				if (devc_name == "subtractor") then
+					
+					--[[ Encoders should be displayed with each press since they don't have a set state like buttons ]] 
+					if     (out_midi == pad_state.toggle[09][1]) then
+						table.insert(events, remote.make_midi(pad_state.subtractor[0163][1]))
+
+					elseif (out_midi == pad_state.toggle[10][1]) then                    
+						table.insert(events, remote.make_midi(pad_state.subtractor[0164][1]))	
+						                                                                 
+					elseif (out_midi == pad_state.toggle[17][1]) then                    
+						table.insert(events, remote.make_midi(pad_state.subtractor[7163][1]))
+					elseif (out_midi == pad_state.toggle[18][1]) then                    
+						table.insert(events, remote.make_midi(pad_state.subtractor[7164][1]))
+						                                                                 
+					elseif (out_midi == pad_state.toggle[34][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0169][1]))	
+					elseif (out_midi == pad_state.toggle[35][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0170][1]))
+					elseif (out_midi == pad_state.toggle[36][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0171][1]))
+					elseif (out_midi == pad_state.toggle[37][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0172][1]))					
+					elseif (out_midi == pad_state.toggle[42][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7169][1]))
+					elseif (out_midi == pad_state.toggle[43][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7170][1]))
+					elseif (out_midi == pad_state.toggle[44][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7171][1]))
+					elseif (out_midi == pad_state.toggle[45][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7172][1]))
+						                                                                 
+					elseif (out_midi == pad_state.toggle[50][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0165][1]))
+					elseif (out_midi == pad_state.toggle[51][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0166][1]))
+					elseif (out_midi == pad_state.toggle[52][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0167][1]))
+					elseif (out_midi == pad_state.toggle[53][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[0168][1]))
+					elseif (out_midi == pad_state.toggle[58][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7165][1]))
+					elseif (out_midi == pad_state.toggle[59][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7166][1]))
+					elseif (out_midi == pad_state.toggle[60][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7167][1]))
+					elseif (out_midi == pad_state.toggle[61][1]) then                     
+						table.insert(events, remote.make_midi(pad_state.subtractor[7168][1]))
+					end
+				end
+				 
+			end
+			
+		end
 
 		--[[ Button logic ]]
 		if (string.match(out_midi, "B.*") ~= nil) then
+		
+			btn_prs = true
 		
 			for i = 1,32 do
 				if (out_midi == btn_state[i][4]) then
@@ -1507,17 +1769,28 @@ function remote_deliver_midi()
 					
 					events = group_select(out_midi)
 					table.insert(events, remote.make_midi(btn_state[current_group][2]))
-
+					
+				elseif ((out_midi==btn_state[idx][4])) then --[[ If any other rim button is pressed, display a light]]
+				
+					table.insert(events, remote.make_midi(btn_state[idx][2]))
+					
 				end
 
 			elseif (action == "release" and hold ~= false) then --[[ If a button is released ]]
 			
 				hold = false
+				
 				if (out_midi == btn_state[current_group][3]) then
 				
 					if (current_group ~= last_group) then
+					
 						table.insert(events, remote.make_midi(btn_state[last_group][1]))
+						
 					end
+					
+				elseif (out_midi == btn_state[idx][3]) then
+				
+					table.insert(events, remote.make_midi(btn_state[idx][1]))
 					
 				end
 			end	
@@ -1536,13 +1809,9 @@ function remote_deliver_midi()
 		state_midi = {}
 		
 	end
-	--[[
-	count = count + 1
-	table.insert(errors, events)
-	if count == 20 then error(tblprint(errors, 3)) end
-	]]
+
 	out_midi = nil
-	
+
 	return (events)
 	
 end
@@ -1704,7 +1973,7 @@ end
 		Add an else catch-all in remote_deliver_midi so that other buttons at least light up when pressed.
 			The issue with this right now lies with the group buttons. we don't want those turning off.
 		
-		Done: Fix the error with buttons and encoders causing Reason to overflow the midi buffer
+		Done: Fix the error with buttons and encoders causing Reason to overflow the midi buffer. time_stamp was timestamp
 		`````
 		Done: Get group functionality working (according to group, use different input items)
 		`````
