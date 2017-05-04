@@ -54,12 +54,29 @@ Map	fdr10		Filter Env Decay
 Map	fdr11		Filter Env Sustain
 Map	fdr12		Filter Env Release
 Map	fdr13		Filter Env Amount
+Map	fdr16		Master Level
 
 Map	fdr17		Mod Env Attack
 Map	fdr18		Mod Env Decay
 Map	fdr19		Mod Env Sustain
 Map	fdr20		Mod Env Release
 Map	fdr21		Mod Env Gain
+
+Map	fdr25		Osc1 Phase Diff
+Map	fdr26		Osc2 Phase Diff
+Map	fdr27		FM Amount
+Map	fdr28		Osc Mix
+Map	fdr29		Noise Decay
+Map	fdr30		Noise Color
+Map	fdr31		Noise Level
+Map	fdr32		Portamento
+
+Map	fdr33		LFO1 Rate
+Map	fdr34		LFO1 Amount
+Map	fdr35		LFO2 Rate
+Map	fdr36		LFO2 Amount
+Map	fdr37		LFO2 Delay
+Map	fdr38		LFO2 Kbd Track
 
 Scope	Propellerheads	Reason Essentials Master Section
 Map	device_name		"essentials master section"
