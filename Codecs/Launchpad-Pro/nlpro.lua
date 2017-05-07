@@ -249,6 +249,49 @@ local devc_actions =
 		[37]={item = 172, value = -1, time_stamp},
 		[45]={item = 172,  value = 1, time_stamp},
 			
+	},
+	
+	malstrom =
+	{
+		
+		--[[ Pitch range select ]]
+		[01]={item = 173, value = -1, time_stamp},
+		[09]={item = 173,  value = 1, time_stamp},
+		
+		--[[ Poly select ]]
+		[02]={item = 174, value = -1, time_stamp},
+		[10]={item = 174,  value = 1, time_stamp},
+		
+		--[[ Mod A Curve ]]
+		[51]={item = 175, value = -1, time_stamp},
+		[52]={item = 175,  value = 1, time_stamp},
+		
+		--[[ Mod B Curve ]]
+		[55]={item = 176, value = -1, time_stamp},
+		[56]={item = 176,  value = 1, time_stamp},
+		
+		--[[ Osc A Functions ]]
+		--[[ Osc A Octave ]]
+		[33]={item = 177, value = -1, time_stamp},
+		[41]={item = 177,  value = 1, time_stamp},
+		--[[ Osc A Semi   ]]
+		[34]={item = 178, value = -1, time_stamp},
+		[42]={item = 178,  value = 1, time_stamp},
+		--[[ Osc A Cent   ]]
+		[35]={item = 179, value = -1, time_stamp},
+		[43]={item = 179,  value = 1, time_stamp},
+			
+		--[[ Osc B Functions ]]
+		--[[ Osc B Octave ]]
+		[17]={item = 180, value = -1, time_stamp},
+		[25]={item = 180,  value = 1, time_stamp},
+		--[[ Osc B Semi   ]]
+		[18]={item = 181, value = -1, time_stamp},
+		[26]={item = 181,  value = 1, time_stamp},
+		--[[ Osc B Fine   ]]
+		[19]={item = 182, value = -1, time_stamp},
+		[27]={item = 182,  value = 1, time_stamp},
+			
 	}
 }
 
@@ -366,7 +409,7 @@ local btn_state =
     {btn[16]..color.wood.D, btn[16]..color.wood.B, btn[16]..off, btn[16]..on},  --[[ group8  ]]
 --[[17                                                                         
   ]]{btn[17]..color.rorg.D, btn[17]..color.rorg.B, btn[17]..off, btn[17]..on},  --[[ stop    ]]
-    {btn[18]..color.grey.D, btn[18]..color.grey.B, btn[18]..off, btn[18]..on},  --[[ send    ]]
+    {btn[18]..color.grn.D , btn[18]..color.grn.B , btn[18]..off, btn[18]..on},  --[[ send    ]]
     {btn[19]..color.grey.D, btn[19]..color.grey.B, btn[19]..off, btn[19]..on},  --[[ pan     ]]
     {btn[20]..color.grey.D, btn[20]..color.grey.B, btn[20]..off, btn[20]..on},  --[[ vol     ]]
     {btn[21]..color.lime.D, btn[21]..color.lime.B, btn[21]..off, btn[21]..on},  --[[ solo    ]]
@@ -541,14 +584,14 @@ local pad_state =
 	
 	subtractor = 
 	{
-		[0033]={pad.p11..color.turq.D, pad.p11..color.turq.D}, --[[ Border ]]
-		[0034]={pad.p21..color.turq.D, pad.p21..color.turq.D}, --[[ Border ]]
-		[0035]={pad.p31..color.turq.D, pad.p31..color.turq.D}, --[[ Border ]]
-		[0036]={pad.p41..color.turq.D, pad.p41..color.turq.D}, --[[ Border ]]
-		[0037]={pad.p51..color.turq.D, pad.p51..color.turq.D}, --[[ Border ]]
-		[0038]={pad.p61..color.turq.D, pad.p61..color.turq.D}, --[[ Border ]]
-		[0039]={pad.p71..color.turq.D, pad.p71..color.turq.D}, --[[ Border ]]
-		[0040]={pad.p81..color.turq.D, pad.p81..color.turq.D}, --[[ Border ]]  
+		[0033]={pad.p11..off, pad.p11..off}, --[[ Border ]]
+		[0034]={pad.p21..off, pad.p21..off}, --[[ Border ]]
+		[0035]={pad.p31..off, pad.p31..off}, --[[ Border ]]
+		[0036]={pad.p41..off, pad.p41..off}, --[[ Border ]]
+		[0037]={pad.p51..off, pad.p51..off}, --[[ Border ]]
+		[0038]={pad.p61..off, pad.p61..off}, --[[ Border ]]
+		[0039]={pad.p71..off, pad.p71..off}, --[[ Border ]]
+		[0040]={pad.p81..off, pad.p81..off}, --[[ Border ]]  
 	    
 		[0163]={pad.p12..color.turq.D, pad.p12..color.red.V }, --[[ Pitch Bend Rng Down *encoder*]]
 		[0164]={pad.p22..color.turq.D, pad.p22..color.red.V }, --[[ Polyphony Down      *encoder*]]
@@ -616,77 +659,77 @@ local pad_state =
 	
 	malstrom = 
 	{
-		{pad.p11..color.grn.D, pad.p11..color.grn.B},
-		{pad.p21..color.grn.D, pad.p21..color.grn.B},
-		{pad.p31..color.grn.D, pad.p31..color.grn.B},
-		{pad.p41..color.grn.D, pad.p41..color.grn.B},
-		{pad.p51..color.grn.D, pad.p51..color.grn.B},
-		{pad.p61..color.grn.D, pad.p61..color.grn.B},
-		{pad.p71..color.grn.D, pad.p71..color.grn.B},
-		{pad.p81..color.grn.D, pad.p81..color.grn.B},
-				  
-		{pad.p12..color.grn.D, pad.p12..color.grn.B},
-		{pad.p22..color.grn.D, pad.p22..color.grn.B},
-		{pad.p32..color.grn.D, pad.p32..color.grn.B},
-		{pad.p42..color.grn.D, pad.p42..color.grn.B},
-		{pad.p52..color.grn.D, pad.p52..color.grn.B},
-		{pad.p62..color.grn.D, pad.p62..color.grn.B},
-		{pad.p72..color.grn.D, pad.p72..color.grn.B},
-		{pad.p82..color.grn.D, pad.p82..color.grn.B},
-			
-		{pad.p13..color.grn.D, pad.p13..color.grn.B},
-		{pad.p23..color.grn.D, pad.p23..color.grn.B},
-		{pad.p33..color.grn.D, pad.p33..color.grn.B},
-		{pad.p43..color.grn.D, pad.p43..color.grn.B},
-		{pad.p53..color.grn.D, pad.p53..color.grn.B},
-		{pad.p63..color.grn.D, pad.p63..color.grn.B},
-		{pad.p73..color.grn.D, pad.p73..color.grn.B},
-		{pad.p83..color.grn.D, pad.p83..color.grn.B},
-				
-		{pad.p14..color.grn.D, pad.p14..color.grn.B},
-		{pad.p24..color.grn.D, pad.p24..color.grn.B},
-		{pad.p34..color.grn.D, pad.p34..color.grn.B},
-		{pad.p44..color.grn.D, pad.p44..color.grn.B},
-		{pad.p54..color.grn.D, pad.p54..color.grn.B},
-		{pad.p64..color.grn.D, pad.p64..color.grn.B},
-		{pad.p74..color.grn.D, pad.p74..color.grn.B},
-		{pad.p84..color.grn.D, pad.p84..color.grn.B},
-				 
-		{pad.p15..color.grn.D, pad.p15..color.grn.B},
-		{pad.p25..color.grn.D, pad.p25..color.grn.B},
-		{pad.p35..color.grn.D, pad.p35..color.grn.B},
-		{pad.p45..color.grn.D, pad.p45..color.grn.B},
-		{pad.p55..color.grn.D, pad.p55..color.grn.B},
-		{pad.p65..color.grn.D, pad.p65..color.grn.B},
-		{pad.p75..color.grn.D, pad.p75..color.grn.B},
-		{pad.p85..color.grn.D, pad.p85..color.grn.B},
-				
-		{pad.p16..color.grn.D, pad.p16..color.grn.B},
-		{pad.p26..color.grn.D, pad.p26..color.grn.B},
-		{pad.p36..color.grn.D, pad.p36..color.grn.B},
-		{pad.p46..color.grn.D, pad.p46..color.grn.B},
-		{pad.p56..color.grn.D, pad.p56..color.grn.B},
-		{pad.p66..color.grn.D, pad.p66..color.grn.B},
-		{pad.p76..color.grn.D, pad.p76..color.grn.B},
-		{pad.p86..color.grn.D, pad.p86..color.grn.B},
-			
-		{pad.p17..color.grn.D, pad.p17..color.grn.B},
-		{pad.p27..color.grn.D, pad.p27..color.grn.B},
-		{pad.p37..color.grn.D, pad.p37..color.grn.B},
-		{pad.p47..color.grn.D, pad.p47..color.grn.B},
-		{pad.p57..color.grn.D, pad.p57..color.grn.B},
-		{pad.p67..color.grn.D, pad.p67..color.grn.B},
-		{pad.p77..color.grn.D, pad.p77..color.grn.B},
-		{pad.p87..color.grn.D, pad.p87..color.grn.B},
-		           
-		{pad.p18..color.grn.D, pad.p18..color.grn.B},
-		{pad.p28..color.grn.D, pad.p28..color.grn.B},
-		{pad.p38..color.grn.D, pad.p38..color.grn.B},
-		{pad.p48..color.grn.D, pad.p48..color.grn.B},
-		{pad.p58..color.grn.D, pad.p58..color.grn.B},
-		{pad.p68..color.grn.D, pad.p68..color.grn.B},
-		{pad.p78..color.grn.D, pad.p78..color.grn.B},
-		{pad.p88..color.grn.D, pad.p88..color.grn.B},
+		[0173]={pad.p11..color.grbl.D, pad.p11..color.red.V },  --[[Pitch Range Down        *encoder*]]
+		[0174]={pad.p21..color.grbl.D, pad.p21..color.red.V },  --[[Polyphony Down          *encoder*]]
+		[0035]={pad.p31..        off , pad.p31..        off },  --[[]]
+		[0036]={pad.p41..color.gry2.D, pad.p41..color.gry2.B},  --[[Velocity Target A + B]]
+		[0037]={pad.p51..color.grn.D , pad.p51..color.grn.B },  --[[Osc B To Filter B]]
+		[0038]={pad.p61..color.orng.D, pad.p61..color.ylow.B},  --[[Filter B Mode]]
+		[0039]={pad.p71..        off , pad.p71..        off },  --[[]]
+		[0040]={pad.p81..        off , pad.p81..        off },  --[[]]
+				                                            
+		[7173]={pad.p12..color.blue.D, pad.p12..color.red.V },  --[[Pitch Range Up          *encoder*]]
+		[7174]={pad.p22..color.blue.D, pad.p22..color.red.V },  --[[Polyphony Up            *encoder*]]
+		[0043]={pad.p32..color.grey.D, pad.p32..color.rorg.B},  --[[Legato]]
+		[0044]={pad.p42..color.gry2.D, pad.p42..color.gry2.B},  --[[Mod Wheel Target A + B]]
+		[0045]={pad.p52..color.grn.D , pad.p52..color.grn.B },  --[[Osc A To Filter B]]
+		[0046]={pad.p62..color.grn.D , pad.p62..color.grn.B },  --[[Filter B Enable]]
+		[0047]={pad.p72..color.grn.D , pad.p72..color.grn.B },  --[[Filter B Env]]
+		[0048]={pad.p82..color.grn.D , pad.p82..color.grn.B },  --[[Filter B Kbd]]
+			                                                
+		[0180]={pad.p13..color.grbl.D, pad.p13..color.red.V },  --[[Osc B Octave Down       *encoder*]]
+		[0181]={pad.p23..color.grbl.D, pad.p23..color.red.V },  --[[Osc B Semi   Down       *encoder*]]
+		[0182]={pad.p33..color.grbl.D, pad.p33..color.red.V },  --[[Osc B Cent   Down       *encoder*]]
+		[0052]={pad.p43..        off , pad.p43..        off },  --[[]]
+		[0053]={pad.p53..        off , pad.p53..        off },  --[[]]
+		[0054]={pad.p63..color.viol.D, pad.p63..color.viol.B},  --[[Filter B To Shaper]]
+		[0055]={pad.p73..        off , pad.p73..        off },  --[[]]
+		[0056]={pad.p83..        off , pad.p83..        off },  --[[]]
+		 		                                            
+		[7180]={pad.p14..color.blue.D, pad.p14..color.red.V },  --[[Osc B Octave Up         *encoder*]]
+		[7181]={pad.p24..color.blue.D, pad.p24..color.red.V },  --[[Osc B Semi   Up         *encoder*]]
+		[7182]={pad.p34..color.blue.D, pad.p34..color.red.V },  --[[Osc B Cent   Up         *encoder*]]
+		[0060]={pad.p44..        off , pad.p44..        off },  --[[]]
+		[0061]={pad.p54..color.orng.D, pad.p54..color.ylow.B},  --[[Shaper Mode]]
+		[0062]={pad.p64..color.orng.D, pad.p64..color.ylow.B},  --[[Filter A Mode]]
+		[0063]={pad.p74..        off , pad.p74..        off },  --[[]]
+		[0064]={pad.p84..        off , pad.p84..        off },  --[[]]
+				                                            
+		[0177]={pad.p15..color.grbl.D, pad.p15..color.red.V },  --[[Osc A Octave Down       *encoder*]]
+		[0178]={pad.p25..color.grbl.D, pad.p25..color.red.V },  --[[Osc A Semi   Down       *encoder*]]
+		[0179]={pad.p35..color.grbl.D, pad.p35..color.red.V },  --[[Osc A Cent   Down       *encoder*]]
+		[0068]={pad.p45..color.grn.D , pad.p45..color.grn.B },  --[[Osc A Route To Shaper]]
+		[0069]={pad.p55..color.grn.D , pad.p55..color.grn.B },  --[[Shaper Enable]]
+		[0070]={pad.p65..color.grn.D , pad.p65..color.grn.B },  --[[Filter A Enable]]
+		[0071]={pad.p75..color.grn.D , pad.p75..color.grn.B },  --[[Filter A Env]]
+		[0072]={pad.p85..color.grn.D , pad.p85..color.grn.B },  --[[Filter A Kbd]]
+		 		                                            
+		[7177]={pad.p16..color.blue.D, pad.p16..color.red.V },  --[[Osc A Octave Up         *encoder*]]
+		[7178]={pad.p26..color.blue.D, pad.p26..color.red.V },  --[[Osc A Semi   Up         *encoder*]]
+		[7179]={pad.p36..color.blue.D, pad.p36..color.red.V },  --[[Osc A Cent   up         *encoder*]]
+		[0076]={pad.p46..        off , pad.p46..        off },  --[[]]
+		[0077]={pad.p56..        off , pad.p56..        off },  --[[]]
+		[0078]={pad.p66..        off , pad.p66..        off },  --[[]]
+		[0079]={pad.p76..        off , pad.p76..        off },  --[[]]
+		[0080]={pad.p86..        off , pad.p86..        off },  --[[]]
+					                                        
+		[0081]={pad.p17..color.grey.D, pad.p17..color.rorg.B},  --[[Osc A Enable]]
+		[0082]={pad.p27..color.grey.D, pad.p27..color.rorg.B},  --[[Osc B Enable]]
+		[0175]={pad.p37..color.grbl.D, pad.p37..color.red.V },  --[[Mod A Curve Down        *encoder*]]
+		[7175]={pad.p47..color.blue.D, pad.p47..color.red.V },  --[[Mod A Curve Up          *encoder*]]
+		[0085]={pad.p57..        off , pad.p57..        off },  --[[]]
+		[0086]={pad.p67..        off , pad.p67..        off },  --[[]]
+		[0176]={pad.p77..color.grbl.D, pad.p77..color.red.V },  --[[Mod B Curve Down        *encoder*]]
+		[7176]={pad.p87..color.blue.D, pad.p87..color.red.V },  --[[Mod B Curve Up          *encoder*]]
+		                                                    
+		[0089]={pad.p18..color.grey.D, pad.p18..color.lime.B},  --[[Mod A Enable]]
+		[0090]={pad.p28..color.grn.D , pad.p28..color.grn.B },  --[[Mod A 1-shot]]
+		[0091]={pad.p38..color.grn.D , pad.p38..color.grn.B },  --[[Mod A sync]]
+		[0092]={pad.p48..color.gry2.D, pad.p48..color.gry2.B},  --[[Mod A Target]]
+		[0093]={pad.p58..color.grey.D, pad.p58..color.lime.B},  --[[Mod B Enable]]
+		[0094]={pad.p68..color.grn.D , pad.p68..color.grn.B },  --[[Mod B 1-shot]]
+		[0095]={pad.p78..color.grn.D , pad.p78..color.grn.B },  --[[Mod B sync]]
+		[0096]={pad.p88..color.gry2.D, pad.p88..color.gry2.B},  --[[Mod B Target]]
 	}
 
 }
@@ -705,11 +748,13 @@ local fdr_state =
 		sysx_hdr.."2B 07 00 "..color.grey.B, 
 	},
 	
-	subtractor =
-	{ --[[ Fader definitions by group. note the sysx_trm lines, those aren't used in 
+--[[ Fader definitions by group. note the sysx_trm lines, those aren't used in 
 	       the group and will appear red. 
-		   If the 3rd byte is 00, the fader type will normally start at 0.
-		   If the 3rd byte is 01, the fader type will normally start at a middle value.    ]]
+		   If the 3rd byte is 00, the fader (in Reason) type will normally start at 0.
+		   If the 3rd byte is 01, the fader (in Reason) type will normally start at a middle value.    ]]	
+		   
+	subtractor =
+	{ 
 		   
 		g1 =
 		{
@@ -772,7 +817,105 @@ local fdr_state =
 		},
 		
 	},
-	
+
+	malstrom = 
+	{
+		g9 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.ylow.D,
+			sysx_hdr.."2B 01 01 "..color.grbl.D,
+			sysx_hdr.."2B 02 01 "..color.grbl.D,
+			sysx_hdr.."2B 03 01 "..color.grbl.D,
+			sysx_hdr.."2B 04 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
+		},		
+		
+		g10 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.ylow.D,
+			sysx_hdr.."2B 01 01 "..color.grbl.D,
+			sysx_hdr.."2B 02 01 "..color.grbl.D,
+			sysx_hdr.."2B 03 01 "..color.grbl.D,
+			sysx_hdr.."2B 04 01 "..color.grbl.D,
+			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
+		},		
+		
+		g11 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.gry2.D,
+			sysx_hdr.."2B 01 01 "..color.ylow.D,
+			sysx_hdr.."2B 02 01 "..color.grbl.D,
+			sysx_hdr.."2B 03 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 04 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 05 00 "..color.gry2.D,
+			sysx_hdr.."2B 06 01 "..color.ylow.D,
+			sysx_hdr.."2B 07 01 "..color.grbl.D,
+		},		
+		
+		g12 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.lime.D,
+			sysx_hdr.."2B 01 00 "..color.lime.D,
+			sysx_hdr.."2B 02 00 "..color.lime.D,
+			sysx_hdr.."2B 03 00 "..color.lime.D,
+			sysx_hdr.."2B 04 00 "..color.grn.B,
+			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
+		},		
+		
+		g13 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.lime.D,
+			sysx_hdr.."2B 01 00 "..color.lime.D,
+			sysx_hdr.."2B 02 00 "..color.lime.D,
+			sysx_hdr.."2B 03 00 "..color.lime.D,
+			sysx_hdr.."2B 04 00 "..color.grn.B,
+			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
+		},		
+		
+		g14 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.grbl.D,
+			sysx_hdr.."2B 01 00 "..color.grey.B,
+			sysx_hdr.."2B 02 00 "..color.ylow.D,
+			sysx_hdr.."2B 03 00 "..color.grey.B,
+			sysx_hdr.."2B 04 00 "..color.ylow.D,
+			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 06 00 "..color.grey.D,
+			sysx_hdr.."2B 07 00 "..color.grn.D,
+		},		
+		
+		g15 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.lime.D,
+			sysx_hdr.."2B 01 00 "..color.lime.D,
+			sysx_hdr.."2B 02 00 "..color.lime.D,
+			sysx_hdr.."2B 03 00 "..color.lime.D,
+			sysx_hdr.."2B 04 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
+		},		
+		
+		g16 = 
+		{
+			sysx_hdr.."2B 00 00 "..color.gry2.D,
+			sysx_hdr.."2B 01 01 "..color.grey.D,
+			sysx_hdr.."2B 02 01 "..color.grey.D,
+			sysx_hdr.."2B 03 01 "..color.grey.D,
+			sysx_hdr.."2B 04 01 "..color.grey.D,
+			sysx_hdr.."2B 05 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 06 00 "..color.red.D..on..sysx_trm,
+			sysx_hdr.."2B 07 00 "..color.red.D..on..sysx_trm,
+		},
+	},
 }
 
 --[[-------------]]
@@ -1008,6 +1151,19 @@ function remote_init()
 	    {name="sub_enc_oct_2",         input="delta", output="value", min=0  , max=9 },		
 		{name="sub_enc_semi_2",        input="delta", output="value", min=0  , max=12},
 	    {name="sub_enc_cent_2",        input="delta", output="value", min=-50, max=50},
+		
+	--[[173
+	  ]]{name="mal_enc_pitch",         input="delta", output="value", min=0  , max=24},
+	    {name="mal_enc_poly",          input="delta", output="value", min=1  , max=16},
+		{name="mal_enc_mod_a_curve",   input="delta", output="value", min=0  , max=31},
+		{name="mal_enc_mod_b_curve",   input="delta", output="value", min=0  , max=31},
+		{name="mal_enc_osc_a_oct",     input="delta", output="value", min=0  , max=8 },
+		{name="mal_enc_osc_a_semi",    input="delta", output="value", min=0  , max=12},
+		{name="mal_enc_osc_a_cent",    input="delta", output="value", min=-50, max=50},
+		{name="mal_enc_osc_b_oct",     input="delta", output="value", min=0  , max=8 },
+		{name="mal_enc_osc_b_semi",    input="delta", output="value", min=0  , max=12},
+		{name="mal_enc_osc_b_cent",    input="delta", output="value", min=-50, max=50},
+
 
     } 
     
@@ -1059,6 +1215,30 @@ function set_prog()
 				table.insert(prog_midi, remote.make_midi(x[1]))
 				
 			elseif (7163 <= i and i <= 7172) then
+			
+				table.insert(prog_midi, remote.make_midi(x[1]))
+			
+			end
+		end
+		
+	elseif (devc_name == "malstrom") then
+	
+		for i,x in pairs(pad_state.malstrom) do
+
+			if (i < 33) then
+			
+				table.insert(prog_midi, remote.make_midi(x[1]))
+				
+			elseif (33 <= i and i <= 96) then
+			
+				v = remote.get_item_value(i)
+				table.insert(prog_midi, remote.make_midi(x[v+1]))
+				
+			elseif (173 <= i and i <= 182) then
+			
+				table.insert(prog_midi, remote.make_midi(x[1]))
+				
+			elseif (7173 <= i and i <= 7182) then
 			
 				table.insert(prog_midi, remote.make_midi(x[1]))
 			
@@ -1124,6 +1304,84 @@ function set_fade()
 					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g5[i]..k..sysx_trm))
 				elseif (i > 6) then
 					table.insert(fade_midi, remote.make_midi(fdr_state.subtractor.g5[i]))
+				end	
+				
+			end
+		end
+		
+	elseif (devc_name == "malstrom") then
+	
+		for i = 1,8 do
+
+			if (current_group == 9) then
+			
+				if (i <= 4) then
+					k = to_hex(remote.get_item_value(98+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g9[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g9[i]))
+				end
+				
+			elseif (current_group == 10) then
+			
+				if (i <= 5) then
+					k = to_hex(remote.get_item_value(106+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g10[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g10[i]))
+				end
+				
+			elseif (current_group == 11) then
+			
+				if (i <= 3 or i >= 6) then
+					k = to_hex(remote.get_item_value(114+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g11[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g11[i]))
+				end	
+				
+			elseif (current_group == 12) then
+			
+				if (i <= 5) then
+					k = to_hex(remote.get_item_value(122+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g12[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g12[i]))
+				end
+				
+			elseif (current_group == 13) then
+			
+				if (i <= 5) then
+					k = to_hex(remote.get_item_value(130+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g13[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g13[i]))
+				end	
+				
+			elseif (current_group == 14) then
+			
+				if (i <= 5 or i >= 7) then
+					k = to_hex(remote.get_item_value(138+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g14[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g14[i]))
+				end	
+							
+			elseif (current_group == 15) then
+			
+				if (i <= 4) then
+					k = to_hex(remote.get_item_value(146+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g15[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g15[i]))
+				end	
+			elseif (current_group == 16) then
+			
+				if (i <= 5) then
+					k = to_hex(remote.get_item_value(154+i)).." "
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g16[i]..k..sysx_trm))
+				else
+					table.insert(fade_midi, remote.make_midi(fdr_state.malstrom.g16[i]))
 				end	
 				
 			end
@@ -1201,6 +1459,7 @@ function mode_switch(midi)
 	if (current_mode == sys_msg.auto_prog) then
 	
 		local get_midi = set_prog()
+
 		for i = 1,table.getn(get_midi) do
 			table.insert(switch_midi, get_midi[i])
 		end
@@ -1346,9 +1605,25 @@ function remote_process_midi(event)
 					else --[[ Handle the rest of the pads automatically.]]
 						
 						msg = {item = 32+idx, value = 1, time_stamp = event.time_stamp}
-							
-						--[[This is where the magic happens, and by magic, i mean infinite death. ]]
+													
+						remote.handle_input(msg)
+						return (true)
+
+					end			
+					
+				elseif (devc_name == "malstrom") then
+				
+					if (devc_actions.malstrom[idx] ~= nil) then
 						
+						devc_actions.malstrom[idx].time_stamp = event.time_stamp
+						remote.handle_input(devc_actions.malstrom[idx]) --[[Table of encoders]]
+					
+						return (true)
+				
+					else --[[ Handle the rest of the pads automatically.]]
+						
+						msg = {item = 32+idx, value = 1, time_stamp = event.time_stamp}
+													
 						remote.handle_input(msg)
 						return (true)
 
@@ -1477,7 +1752,7 @@ function remote_set_state(ci) --[ ci is changed items ]]
 			if (index == 98 and remote.get_item_text_value(index) ~= devc_name) then --[[ If the device changed ]]
 				last_devc_name = devc_name                                           --[[ Put the current in last ]]
 				devc_name = remote.get_item_text_value(index)                        --[[ set current to the get ]]
-				devc_switch()                                                       
+				state_midi = devc_switch()
 			end
 			
 		end	
@@ -1501,7 +1776,17 @@ function remote_set_state(ci) --[ ci is changed items ]]
 
 					end
 					
-				else
+				elseif (devc_name == "malstrom") then
+				
+					if ((33 <= index and index <= 96) and remote.is_item_enabled(index) == true) then --[[ If the pad/button changed ]]
+						local k = index
+						local v = remote.get_item_value(index)
+						table.insert(state_midi, remote.make_midi(pad_state.malstrom[k][v+1]))
+					--[[ For encoders, refer to RDM, since encoders are variable and using state
+					     to determine what they look like would be rather convoluted.]]
+
+					end
+					
 				end
 				
 			end
@@ -1595,8 +1880,6 @@ function remote_deliver_midi()
 		
 		--[[ Pad logic ]]
 		if (current_mode == sys_msg.auto_prog and string.match(out_midi, "9.*") ~= nil) then
-		
-			pad_prs = true
 			
 			for i = 1,64 do
 				if (out_midi == pad_state.toggle[i][2]) then
@@ -1661,6 +1944,56 @@ function remote_deliver_midi()
 					elseif (out_midi == pad_state.toggle[61][2]) then
 						table.insert(events, remote.make_midi(pad_state.subtractor[7168][2]))
 					end
+					
+				elseif (devc_name == "malstrom") then
+				
+					if     (out_midi == pad_state.toggle[01][2]) then
+						table.insert(events, remote.make_midi(pad_state.malstrom[0173][2]))
+					elseif (out_midi == pad_state.toggle[09][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7173][2]))	
+						                                                
+					elseif (out_midi == pad_state.toggle[02][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0174][2]))
+					elseif (out_midi == pad_state.toggle[10][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7174][2]))
+						                                                
+					elseif (out_midi == pad_state.toggle[51][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0175][2]))
+					elseif (out_midi == pad_state.toggle[52][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7175][2]))
+						                                                
+					elseif (out_midi == pad_state.toggle[55][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0176][2]))
+					elseif (out_midi == pad_state.toggle[56][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7176][2]))
+						                                                
+					elseif (out_midi == pad_state.toggle[33][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0177][2]))
+					elseif (out_midi == pad_state.toggle[41][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7177][2]))	
+					elseif (out_midi == pad_state.toggle[34][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0178][2]))
+					elseif (out_midi == pad_state.toggle[42][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7178][2]))
+					elseif (out_midi == pad_state.toggle[35][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0179][2]))
+					elseif (out_midi == pad_state.toggle[43][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7179][2]))
+						                                                
+					elseif (out_midi == pad_state.toggle[17][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0180][2]))
+					elseif (out_midi == pad_state.toggle[25][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7180][2]))					
+					elseif (out_midi == pad_state.toggle[18][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0181][2]))
+					elseif (out_midi == pad_state.toggle[26][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7181][2]))
+					elseif (out_midi == pad_state.toggle[19][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0182][2]))
+					elseif (out_midi == pad_state.toggle[27][2]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7182][2]))
+					end 
+					
 				end
 				
 			elseif (action == "release" and hold ~= false) then
@@ -1715,6 +2048,56 @@ function remote_deliver_midi()
 					elseif (out_midi == pad_state.toggle[61][1]) then                     
 						table.insert(events, remote.make_midi(pad_state.subtractor[7168][1]))
 					end
+					
+				elseif (devc_name == "malstrom") then
+				
+					if     (out_midi == pad_state.toggle[01][1]) then
+						table.insert(events, remote.make_midi(pad_state.malstrom[0173][1]))
+					elseif (out_midi == pad_state.toggle[09][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7173][1]))	
+						                                                
+					elseif (out_midi == pad_state.toggle[02][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0174][1]))
+					elseif (out_midi == pad_state.toggle[10][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7174][1]))
+						                                                
+					elseif (out_midi == pad_state.toggle[51][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0175][1]))
+					elseif (out_midi == pad_state.toggle[52][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7175][1]))
+						                                                
+					elseif (out_midi == pad_state.toggle[55][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0176][1]))
+					elseif (out_midi == pad_state.toggle[56][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7176][1]))
+						                                                
+					elseif (out_midi == pad_state.toggle[33][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0177][1]))
+					elseif (out_midi == pad_state.toggle[41][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7177][1]))	
+					elseif (out_midi == pad_state.toggle[34][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0178][1]))
+					elseif (out_midi == pad_state.toggle[42][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7178][1]))
+					elseif (out_midi == pad_state.toggle[35][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0179][1]))
+					elseif (out_midi == pad_state.toggle[43][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7179][1]))
+						                                                
+					elseif (out_midi == pad_state.toggle[17][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0180][1]))
+					elseif (out_midi == pad_state.toggle[25][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7180][1]))					
+					elseif (out_midi == pad_state.toggle[18][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0181][1]))
+					elseif (out_midi == pad_state.toggle[26][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7181][1]))
+					elseif (out_midi == pad_state.toggle[19][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[0182][1]))
+					elseif (out_midi == pad_state.toggle[27][1]) then   
+						table.insert(events, remote.make_midi(pad_state.malstrom[7182][1]))
+					end 
+					
 				end
 				 
 			end
@@ -1723,8 +2106,6 @@ function remote_deliver_midi()
 
 		--[[ Button logic ]]
 		if (string.match(out_midi, "B.*") ~= nil) then
-		
-			btn_prs = true
 		
 			for i = 1,32 do
 				if (out_midi == btn_state[i][4]) then
@@ -1788,8 +2169,12 @@ function remote_deliver_midi()
 						
 					end
 					
-				elseif (out_midi == btn_state[idx][3]) then
-				
+				elseif (out_midi == btn_state[idx][3]
+				    and  (idx ~= 5 --[[As long as the idx isn't a mode switch button, set to default upon release]]
+					  and idx ~= 6
+					  and idx ~= 7
+					  and idx ~= 8)) then
+
 					table.insert(events, remote.make_midi(btn_state[idx][1]))
 					
 				end
@@ -1972,6 +2357,8 @@ end
 		
 		Add an else catch-all in remote_deliver_midi so that other buttons at least light up when pressed.
 			The issue with this right now lies with the group buttons. we don't want those turning off.
+			
+		Add logic to increase/decrease encoders quickly after a press and hold, say a 1 to 1.5 second delay.
 		
 		Done: Fix the error with buttons and encoders causing Reason to overflow the midi buffer. time_stamp was timestamp
 		`````
@@ -1979,8 +2366,11 @@ end
 		`````
 		Done: Use get_item_state to determine whether or not a certain device is selected, instead of the arrow keys.
 		`````
-		Consider adding a default layout that covers some of Reason's main controls.
 
 		Add more Devices.
+		
+	Temporary Changelog:
+
+		
 		
   ]]
