@@ -7,9 +7,35 @@ Map Version	1.0.0
 Scope	Propellerheads	Master Keyboard
 Map	kboard		Keyboard
 
+Scope	Propellerheads	Reason Document
+Map	device_name		"reason doc"
+
+Map	up		Target Previous Track
+Map	down		Target Next Track
+Map	right		Bar Position Up
+Map	left		Bar Position Down
+
+Map	stop		Stop
+Map	send		Play
+Map	pan		Move Loop One bar Right
+Map	vol		Move Loop One bar Left
+Map	solo		Target Track Solo
+Map	mute		Target Track Mute
+Map	trk_sel		Loop On/Off
+Map	rec_arm		Precount On/Off
+
+Map	rec		Record
+Map	dbl		New Alternative Take
+Map	dupe		New Overdub
+Map	quant		Auto-quantize
+Map	del		Redo
+Map	undo		Undo
+Map	click		Click On/Off
+Map	shift		Tap Tempo
 
 Scope	Propellerheads	SubTractor Analog Synthesizer		
 Map	device_name		"subtractor"
+
 Map	sub_enc_pitch		Pitch Bend Range
 Map	sub_enc_poly		Polyphony
 Map	sub_enc_wave_1		Osc1 Wave
@@ -20,22 +46,29 @@ Map	sub_enc_wave_2		Osc2 Wave
 Map	sub_enc_oct_2		Osc2 Octave
 Map	sub_enc_semi_2		Osc2 Semitone
 Map	sub_enc_cent_2		Osc2 Fine Tune
+
 Map	p32		LFO1 Wave
 Map	p42		LFO1 Dest
 Map	p62		LFO2 Dest
+
 Map	p33		LFO Sync Enable
 Map	p63		Mod Env Dest
+
 Map	p14		Ext Mod Select
 Map	p24		Noise On/Off
 Map	p44		Osc1 Kbd Track
 Map	p54		Osc2 Kbd Track
 Map	p64		Mod Env Invert
 Map	p74		Filter Env Invert
+
 Map	p15		Osc2 Phase Mode
 Map	p65		Ring Mod
+
 Map	p16		Osc2 On/Off
+
 Map	p17		Osc1 Phase Mode
 Map	p77		Filter Type
+
 Map	p18		Key Mode
 Map	p78		Filter Link Freq On/Off
 Map	p88		Filter2 On/Off
@@ -78,6 +111,107 @@ Map	fdr36		LFO2 Amount
 Map	fdr37		LFO2 Delay
 Map	fdr38		LFO2 Kbd Track
 
+
+
+Scope	Propellerheads	Malstrom Graintable Synthesizer
+Map	device_name		"malstrom"
+
+Map	mal_enc_pitch		Pitch Bend Range
+Map	mal_enc_poly		Polyphony
+Map	mal_enc_mod_a_curve		Modulator A Curve
+Map	mal_enc_mod_b_curve		Modulator B Curve
+Map	mal_enc_osc_a_oct		Oscillator A Octave
+Map	mal_enc_osc_a_semi		Oscillator A Semi
+Map	mal_enc_osc_a_cent		Oscillator A Cent
+Map	mal_enc_osc_b_oct		Oscillator B Octave
+Map	mal_enc_osc_b_semi		Oscillator B Semi
+Map	mal_enc_osc_b_cent		Oscillator B Cent
+
+Map	p41		Velocity Target
+Map	p51		Route Oscillator B To Filter B
+Map	p61		Filter B Mode
+
+Map	p32		Legato On/Off
+Map	p42		Mod Wheel Target
+Map	p52		Route Oscillator A To Filter B
+Map	p62		Filter B On/Off
+Map	p72		Filter B Env
+Map	p82		Filter B Kbd Track
+
+Map	p63		Route Filter B To Shaper
+
+Map	p54		Shaper Mode
+Map	p64		Filter A Mode
+
+Map	p45		Route Oscillator A To Shaper
+Map	p55		Shaper On/Off
+Map	p65		Filter A On/Off
+Map	p75		Filter A Env
+Map	p85		Filter A Kbd Track
+
+Map	p17		Oscillator A On/Off
+Map	p27		Oscillator B On/Off
+
+Map	p18		Modulator A On/Off
+Map	p28		Modulator A One Shot
+Map	p38		Modulator A Sync
+Map	p48		Modulator A Target
+Map	p58		Modulator B On/Off
+Map	p68		Modulator B One Shot
+Map	p78		Modulator B Sync
+Map	p88		Modulator B Target
+
+Map	fdr01		Modulator A Rate
+Map	fdr02		Modulator A To Pitch
+Map	fdr03		Modulator A To Index
+Map	fdr04		Modulator A To Shift
+
+Map	fdr09		Modulator B Rate
+Map	fdr10		Modulator B To Level
+Map	fdr11		Modulator B To Filter
+Map	fdr12		Modulator B To Modulator A
+Map	fdr13		Modulator B To Motion
+
+Map	fdr17		Oscillator A Index
+Map	fdr18		Oscillator A Motion
+Map	fdr19		Oscillator A Shift
+Map	fdr22		Oscillator B Index
+Map	fdr23		Oscillator B Motion
+Map	fdr24		Oscillator B Shift
+
+Map	fdr25		Oscillator A Attack
+Map	fdr26		Oscillator A Decay
+Map	fdr27		Oscillator A Sustain
+Map	fdr28		Oscillator A Release
+Map	fdr29		Oscillator A Gain
+
+Map	fdr33		Oscillator B Attack
+Map	fdr34		Oscillator B Decay
+Map	fdr35		Oscillator B Sustain
+Map	fdr36		Oscillator B Release
+Map	fdr37		Oscillator B Gain
+
+Map	fdr41		Shaper Amount
+Map	fdr42		Filter A Freq
+Map	fdr43		Filter A Resonance
+Map	fdr44		Filter B Freq
+Map	fdr45		Filter B Resonance
+Map	fdr47		Spread Amount
+Map	fdr48		Master Level
+
+Map	fdr49		Filter Env Attack
+Map	fdr50		Filter Env Decay
+Map	Fdr51		Filter Env Sustain
+Map	fdr52		Filter Env Release
+
+Map	fdr57		Mod Wheel
+Map	fdr58		Mod Wheel To Index
+Map	fdr59		Mod Wheel To Shift
+Map	fdr60		Mod Wheel To Filter
+Map	fdr61		Mod Wheel To Modulator
+
+
+
 Scope	Propellerheads	Reason Essentials Master Section
 Map	device_name		"essentials master section"
 
@@ -105,8 +239,7 @@ Map	device_name		"redrum"
 Scope	Propellerheads	Thor Polysonic Synthesizer
 Map	device_name		"thor"
 
-Scope	Propellerheads	Malstrom Graintable Synthesizer
-Map	device_name		"malstrom"
+
 
 
 Scope	Propellerheads	ID8 Instrument Device
@@ -1775,10 +1908,6 @@ Map	device_name		"gclip"
 
 Scope	Propellerheads	ReGroove Mixer
 Map	device_name		"regroove mixer"
-
-
-Scope	Propellerheads	Reason Document
-Map	device_name		"reason document"
 
 
 Scope	Propellerheads	Record Document
