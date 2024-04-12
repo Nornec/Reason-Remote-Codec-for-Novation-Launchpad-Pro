@@ -1,6 +1,6 @@
 --[[___________________________________________________________________________________________________
   || Novation Launchpad Pro -- Propellerhead "Remote" Codec                                          ||
-  || Developed by -- James "Nornec" Ratliff                                                          ||
+  || Developed by -- Jae "Nornec" Rin                                                                ||
   |---------------------------------------------------------------------------------------------------|
   || A few notes before code:                                                                        ||
   || + The "print" function has been supplanted by "remote.trace(<string>)".                         ||
@@ -18,7 +18,7 @@
   ||   compatibility with Reason was lacking, however I hope this codec is a useful marriage         ||
   ||   of "note" mode and "programmer" mode.                                                         ||
   || + Finally, I want this codec to be as documented as possible. If something is not clear         ||
-  ||   or can/should be extrapolated, please send me an email: jaynornec@gmail.com                   ||
+  ||   or can/should be extrapolated, please send me an email: jae@midinous.com                      ||
   |---------------------------------------------------------------------------------------------------|
   || LAUNCHPAD SETUP INSTRUCTIONS                                                                    ||
   ||   For proper operation, please edit the settings of the launchpad from the 'setup' menu         ||
